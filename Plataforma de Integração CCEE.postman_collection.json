@@ -571,6 +571,306 @@
 							],
 							"protocolProfileBehavior": {},
 							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Parcelas de ativos",
+							"item": [
+								{
+									"name": "Listar parcelas de ativos",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "356ee718-89e6-4d8d-ae82-125c42634783",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "94f228b3-6d0b-435e-9248-b8c6fe94f1e5",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarParcelaAtivo"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n\t\t<bmv2:listarParcelaAtivoRequest>\n\t\t\t<bmv2:periodoReferencia>\n\t\t\t\t<!--<bov2:inicio>2019-11-01T00:00:00</bov2:inicio>-->\n\t\t\t</bmv2:periodoReferencia>\n\t\t\t<bmv2:parcelaAtivo>\n\t\t\t\t<!--<bov2:codigo>CODIGO_PARCELA</bov2:codigo>-->\n\t\t\t\t<bov2:participanteMercado>\n\t\t\t\t\t<bov2:perfis>\n\t\t\t\t\t\t<bov2:perfil>\n\t\t\t\t\t\t\t<bov2:codigo>{{testeCodigoPerfil}}</bov2:codigo>\n\t\t\t\t\t\t</bov2:perfil>\n\t\t\t\t\t</bov2:perfis>\n\t\t\t\t</bov2:participanteMercado>\n\t\t\t\t<bov2:ativoMedicao>\n\t\t\t\t\t<!--<bov2:codigo>CODIGO_ATIVO</bov2:codigo>-->\n\t\t\t\t</bov2:ativoMedicao>\n\t\t\t\t<bov2:identificacao>\n\t\t\t\t\t<!--<bov2:numero>CNPJ_ATIVO</bov2:numero>-->\n\t\t\t\t</bov2:identificacao>\n\t\t\t</bmv2:parcelaAtivo>\n\t\t</bmv2:listarParcelaAtivoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/ParcelaAtivoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"ParcelaAtivoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarParcelaAtivo](http://www.ccee.org.br/ccee/documentos/CCEE_651802)"
+									},
+									"response": [
+										{
+											"name": "Listar parcelas de ativos",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarParcelaAtivo"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n\t\t<bmv2:listarParcelaAtivoRequest>\n\t\t\t<bmv2:periodoReferencia>\n\t\t\t\t<!--<bov2:inicio>2019-11-01T00:00:00</bov2:inicio>-->\n\t\t\t</bmv2:periodoReferencia>\n\t\t\t<bmv2:parcelaAtivo>\n\t\t\t\t<!--<bov2:codigo>CODIGO_PARCELA</bov2:codigo>-->\n\t\t\t\t<bov2:participanteMercado>\n\t\t\t\t\t<bov2:perfis>\n\t\t\t\t\t\t<bov2:perfil>\n\t\t\t\t\t\t\t<bov2:codigo>{{testeCodigoPerfil}}</bov2:codigo>\n\t\t\t\t\t\t</bov2:perfil>\n\t\t\t\t\t</bov2:perfis>\n\t\t\t\t</bov2:participanteMercado>\n\t\t\t\t<bov2:ativoMedicao>\n\t\t\t\t\t<!--<bov2:codigo>CODIGO_ATIVO</bov2:codigo>-->\n\t\t\t\t</bov2:ativoMedicao>\n\t\t\t\t<bov2:identificacao>\n\t\t\t\t\t<!--<bov2:numero>CNPJ_ATIVO</bov2:numero>-->\n\t\t\t\t</bov2:identificacao>\n\t\t\t</bmv2:parcelaAtivo>\n\t\t</bmv2:listarParcelaAtivoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/ParcelaAtivoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"ParcelaAtivoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d51204d514d2e5052442e494e5445954b485fd7a8d424</MsgId><CorrelId>414d51204d514d2e5052442e494e5445954b485fd7a8d424</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>MQM.PRD.INTEGRACAO.N01                          </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20200831</PutDate><PutTime>22464799</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "cf6afb305f4d7dd7129dff76"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 31 Aug 2020 22:46:48 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\">\n    <soapenv:Header>\n        <mh:messageHeader>\n            <mh:transactionId>123412378-1234-1234-1234-1234123789012</mh:transactionId>\n        </mh:messageHeader>\n        <mh:paginacao>\n            <mh:numero>1</mh:numero>\n            <mh:quantidadeItens>2</mh:quantidadeItens>\n            <mh:totalPaginas>11</mh:totalPaginas>\n            <mh:quantidadeTotalItens>22</mh:quantidadeTotalItens>\n        </mh:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarParcelaAtivoResponse xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n            <bmv2:parcelasAtivo>\n                <bov2:parcelaAtivo>\n                    <bov2:codigo>987</bov2:codigo>\n                    <bov2:participanteMercado>\n                        <bov2:perfis>\n                            <bov2:perfil>\n                                <bov2:codigo>123</bov2:codigo>\n                            </bov2:perfil>\n                        </bov2:perfis>\n                    </bov2:participanteMercado>\n                    <bov2:ativoMedicao>\n                        <bov2:codigo>987</bov2:codigo>\n                    </bov2:ativoMedicao>\n                    <bov2:capacidadeTotal>324</bov2:capacidadeTotal>\n                    <bov2:nomeReduzido>NOME_REDUZIDO</bov2:nomeReduzido>\n                    <bov2:nome>NOME</bov2:nome>\n                    <bov2:submercado>\n                        <bov2:id>1</bov2:id>\n                    </bov2:submercado>\n                    <bov2:garantiaFisica>343.5</bov2:garantiaFisica>\n                    <bov2:vigencia>\n                        <bov2:inicio>2018-01-01T00:00:00-02:00</bov2:inicio>\n                    </bov2:vigencia>\n                    <bov2:identificacao>\n                        <bov2:numero>12345678000199</bov2:numero>\n                    </bov2:identificacao>\n                    <bov2:status>\n                        <bov2:codigo>1</bov2:codigo>\n                        <bov2:descricao>ATIVO</bov2:descricao>\n                    </bov2:status>\n                </bov2:parcelaAtivo>\n                <bov2:parcelaAtivo>\n                    <bov2:codigo>789</bov2:codigo>\n                    <bov2:participanteMercado>\n                        <bov2:perfis>\n                            <bov2:perfil>\n                                <bov2:codigo>123</bov2:codigo>\n                            </bov2:perfil>\n                        </bov2:perfis>\n                    </bov2:participanteMercado>\n                    <bov2:ativoMedicao>\n                        <bov2:codigo>999</bov2:codigo>\n                    </bov2:ativoMedicao>\n                    <bov2:capacidadeTotal>1987</bov2:capacidadeTotal>\n                    <bov2:nomeReduzido>NOME_REDUZIDO</bov2:nomeReduzido>\n                    <bov2:nome>NOME</bov2:nome>\n                    <bov2:submercado>\n                        <bov2:id>1</bov2:id>\n                    </bov2:submercado>\n                    <bov2:garantiaFisica>2323.3</bov2:garantiaFisica>\n                    <bov2:vigencia>\n                        <bov2:inicio>2018-01-01T00:00:00-02:00</bov2:inicio>\n                    </bov2:vigencia>\n                    <bov2:identificacao>\n                        <bov2:numero>12345678000199</bov2:numero>\n                    </bov2:identificacao>\n                    <bov2:status>\n                        <bov2:codigo>1</bov2:codigo>\n                        <bov2:descricao>ATIVO</bov2:descricao>\n                    </bov2:status>\n                </bov2:parcelaAtivo>\n            </bmv2:parcelasAtivo>\n        </bmv2:listarParcelaAtivoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								},
+								{
+									"name": "Listar parcelas associadas a contratos",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "d1ede127-dc3a-4609-a442-9b7b18b7b046",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "85c30d47-0bd0-4fbc-be23-c4362d6a983e",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarParcelaAtivo"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n\t\t<bmv2:listarParcelaAtivoRequest>\n\t\t\t<bmv2:periodoReferencia>\n\t\t\t\t<!--<bov2:inicio>2019-11-01T00:00:00</bov2:inicio>-->\n\t\t\t</bmv2:periodoReferencia>\n\t\t\t<bmv2:parcelaAtivo>\n\t\t\t\t<!--<bov2:codigo>CODIGO_PARCELA</bov2:codigo>-->\n\t\t\t\t<bov2:participanteMercado>\n\t\t\t\t\t<bov2:perfis>\n\t\t\t\t\t\t<bov2:perfil>\n\t\t\t\t\t\t\t<bov2:codigo>{{testeCodigoPerfil}}</bov2:codigo>\n\t\t\t\t\t\t</bov2:perfil>\n\t\t\t\t\t</bov2:perfis>\n\t\t\t\t</bov2:participanteMercado>\n\t\t\t\t<bov2:ativoMedicao>\n\t\t\t\t\t<!--<bov2:codigo>CODIGO_ATIVO</bov2:codigo>-->\n\t\t\t\t</bov2:ativoMedicao>\n\t\t\t\t<bov2:identificacao>\n\t\t\t\t\t<!--<bov2:numero>CNPJ_ATIVO</bov2:numero>-->\n\t\t\t\t</bov2:identificacao>\n\t\t\t</bmv2:parcelaAtivo>\n\t\t</bmv2:listarParcelaAtivoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/ParcelaAtivoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"ParcelaAtivoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarParcelaAtivo](http://www.ccee.org.br/ccee/documentos/CCEE_651802)"
+									},
+									"response": [
+										{
+											"name": "Listar parcelas associadas a contratos",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarParcelaAtivo"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n    <soapenv:Header>\n        <mhv2:messageHeader>\n            <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n        </mhv2:messageHeader>\n        <oas:Security>\n            <oas:UsernameToken>\n                <oas:Username>{{AuthUsername}}</oas:Username>\n                <oas:Password>{{AuthPassword}}</oas:Password>\n            </oas:UsernameToken>\n        </oas:Security>\n        <mhv2:paginacao>\n            <mhv2:numero>1</mhv2:numero>\n            <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n        </mhv2:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarParcelaAtivoRequest>\n            <bmv2:listarContratosAssociados>true</bmv2:listarContratosAssociados>\n            <bmv2:periodoReferencia>\n                <bov2:inicio>2014-01-01T00:00:00</bov2:inicio>\n                <bov2:fim>2014-12-31T00:00:00</bov2:fim>\n            </bmv2:periodoReferencia>\n            <bmv2:contrato>\n                <bov2:id>{{testeCodigoContrato}}</bov2:id>\n            </bmv2:contrato>\n        </bmv2:listarParcelaAtivoRequest>\n    </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/ParcelaAtivoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"ParcelaAtivoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d51204d514d2e5052442e494e5445c14b485fbe806024</MsgId><CorrelId>414d51204d514d2e5052442e494e5445c14b485fbe806024</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>MQM.PRD.INTEGRACAO.N02                          </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20200831</PutDate><PutTime>23082230</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "6ac8306b5f4d82e51dee70b6"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 31 Aug 2020 23:08:22 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n\t<soapenv:Header>\n\t\t<mh:messageHeader>\n\t\t\t<mh:transactionId>12345678-1234-1234-1234-123456789012</mh:transactionId>\n\t\t</mh:messageHeader>\n\t\t<mh:paginacao>\n\t\t\t<mh:numero>1</mh:numero>\n\t\t\t<mh:quantidadeItens>1</mh:quantidadeItens>\n\t\t\t<mh:totalPaginas>1</mh:totalPaginas>\n\t\t\t<mh:quantidadeTotalItens>1</mh:quantidadeTotalItens>\n\t\t</mh:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<bmv2:listarParcelaAtivoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n\t\t\t<bmv2:parcelasAtivo>\n\t\t\t\t<bov2:parcelaAtivo>\n\t\t\t\t\t<bov2:codigo>987</bov2:codigo>\n\t\t\t\t\t<bov2:modalidade>\n\t\t\t\t\t\t<bov2:codigo>1</bov2:codigo>\n\t\t\t\t\t\t<bov2:descricao>Modula&#231;&#227;o</bov2:descricao>\n\t\t\t\t\t</bov2:modalidade>\n\t\t\t\t\t<bov2:contratosAssociado>\n\t\t\t\t\t\t<bov2:contratoAssociado>\n\t\t\t\t\t\t\t<bov2:id>999</bov2:id>\n\t\t\t\t\t\t\t<bov2:periodoAssociado>\n\t\t\t\t\t\t\t\t<bov2:inicio>2020-06-01T00:00:00-03:00</bov2:inicio>\n\t\t\t\t\t\t\t\t<bov2:fim>2020-07-01T00:00:00-03:00</bov2:fim>\n\t\t\t\t\t\t\t</bov2:periodoAssociado>\n\t\t\t\t\t\t</bov2:contratoAssociado>\n\t\t\t\t\t</bov2:contratosAssociado>\n\t\t\t\t</bov2:parcelaAtivo>\n\t\t\t</bmv2:parcelasAtivo>\n\t\t</bmv2:listarParcelaAtivoResponse>\n\t</soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nListar parcelas de ativos cadastradas na CCEE.\n\n# Acesso\nO serviço é exposto através de um *web service*.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/ParcelaAtivoBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br/ws/v2/ParcelaAtivoBSv2\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/ParcelaAtivoBSv2?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br/ws/v2/ParcelaAtivoBSv2\n",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "aa7ec56e-3946-4c9e-a187-b5e89d53972a",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "e3a9a1a7-1e8d-481b-88d0-a5bfdaca1348",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
 					],
 					"description": "Conjunto de *web services* relacionados a informações de ativos de medição.\r\n\r\nA modelagem de ativos é iniciada no SigaCCEE e finalizada no CliqCCEE e apresenta as informações necessárias referentes a modelagem do ativo. Com a modelagem realizada, o ativo físico se torna um ativo contábil para a CCEE permitindo que possa ser considerado nos processamentos.\r\n",
@@ -4219,42 +4519,42 @@
 	],
 	"variable": [
 		{
-			"id": "f56ed9cd-6ed5-4ef2-80b8-0215a85c2b0c",
+			"id": "0ef523af-d139-41d1-bea4-908ceef24daa",
 			"key": "host",
 			"value": "https://servicos.ccee.org.br:443"
 		},
 		{
-			"id": "a2385ee8-e286-45c2-b1a2-4cf79d7c4213",
+			"id": "05b6fe74-31c7-4215-a835-6ea460149bd4",
 			"key": "AuthCodigoPerfilAgente",
 			"value": "{{AuthCodigoPerfilAgente}}"
 		},
 		{
-			"id": "355418e0-ee07-4aa1-bc44-4d2f3aa2b3f6",
+			"id": "55cfa51b-017e-46c4-aba1-7c3c75f68271",
 			"key": "AuthUsername",
 			"value": "{{AuthUsername}}"
 		},
 		{
-			"id": "60f4e44a-78b2-4ba2-86b9-064350924d77",
+			"id": "f17816b5-e234-4ef2-8694-1b4751782d6c",
 			"key": "AuthPassword",
 			"value": "{{AuthPassword}}"
 		},
 		{
-			"id": "3e8c0b13-b9c5-4288-9285-16841e791262",
+			"id": "00206981-9541-418b-bc84-27dc14c13a56",
 			"key": "testeCodigoAgente",
 			"value": "{{testeCodigoAgente}}"
 		},
 		{
-			"id": "916a7e80-f93d-4588-897e-77290d9467cf",
+			"id": "15cc1b37-70e9-4a43-9528-94f4b55a62cf",
 			"key": "testeCodigoPerfil",
 			"value": "{[testeCodigoPerfil}}"
 		},
 		{
-			"id": "7d3f33d4-f21f-40c8-be11-6fb149357824",
+			"id": "936c3c0b-e91f-44ac-b408-8c119acb623a",
 			"key": "testeCodigoContrato",
 			"value": "{{testeCodigoContrato}}"
 		},
 		{
-			"id": "d2f2dc54-b608-461e-a55c-daba74dd1568",
+			"id": "1f8d3f20-b882-4666-a274-242eba57fcc6",
 			"key": "testeCodigoAtivo",
 			"value": "{{testeCodigoAtivo}}"
 		}
