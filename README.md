@@ -2,7 +2,9 @@
 
 Conjunto de colections pré-configurados para serem rodados no [Postman](https://www.getpostman.com/) contém exemplos de chamadas dos serviços expostos pela [Plataforma de Integração CCEE](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/plataforma_integracao?_adf.ctrl-state=1cvbsj9eab_5).
 
-https://documenter.getpostman.com/view/12351215/T1LMi7So?version=latest
+Documentação do Postman Collection está disponível em https://documenter.getpostman.com/view/12351215/TVCdzTxD
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/27dc730daa9ea47cfa3e)
 
 # A Plataforma de Integração CCEE
 
