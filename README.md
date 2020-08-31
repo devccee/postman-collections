@@ -57,7 +57,7 @@ Os passos abaixo mostram como configurar sua chave privada no Postman:
 ### Referências
 
 - [Postman Learning Center](https://learning.postman.com/)
-- [Postman - Working with certificates](hhttps://learning.postman.com/docs/sending-requests/certificates/)
+- [Postman - Working with certificates](https://learning.postman.com/docs/sending-requests/certificates/)
 
 ------
 _Agredecimentos_
