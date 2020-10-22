@@ -21,7 +21,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "13e41de4-8db3-4648-855c-0a2f2ab8d2a4",
+												"id": "7377e244-f026-4621-a711-40974d42bb6a",
 												"exec": [
 													""
 												],
@@ -31,7 +31,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "f537d490-5b95-46b1-9618-ddad3232aefe",
+												"id": "b5efa47d-6142-4416-9218-02d28d6ee9fb",
 												"exec": [
 													""
 												],
@@ -152,7 +152,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c39fc39b-25dc-4cc7-bf43-cd29821b3bfa",
+										"id": "efe40743-0d93-4f27-9f8d-5b0cee8f53f6",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -162,7 +162,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c0c6331b-794a-4b7e-9214-0dc9182c45ea",
+										"id": "7141c571-8dac-4d28-be60-a610d48cd088",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -194,7 +194,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "<soapenv:Envelope\r\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\r\n\txmlns:mh=\"http://xmlns.energia.org.br/MH/v2\"\r\n\txmlns:bm=\"http://xmlns.energia.org.br/BM/v2\"\r\n\txmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n\t<soapenv:Header>\r\n\t\t<mh:messageHeader>\r\n\t\t\t<mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n\t\t</mh:messageHeader>\r\n\t\t<oas:Security>\r\n\t\t\t<oas:UsernameToken>\r\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\r\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\r\n\t\t\t</oas:UsernameToken>\r\n\t\t</oas:Security>\r\n\t\t<mh:paginacao>\r\n\t\t\t<mh:numero>1</mh:numero>\r\n\t\t\t<mh:quantidadeItens>2</mh:quantidadeItens>\r\n\t\t</mh:paginacao>\r\n\t</soapenv:Header>\r\n   <soapenv:Body>\r\n        <bm:listarExpressaoContabilRequest>\r\n            <bm:parcelaAtivo>\r\n                <bo:ativoMedicao>\r\n\t\t\t\t\t<!-- Número do ativo -->\r\n                    <bo:numero>{{testeCodigoAtivo}}</bo:numero>\r\n                </bo:ativoMedicao>\r\n\t\t\t\t<!-- Número da parcela de ativo -->\r\n                <!-- <bo:numeroSequencial>123</bo:numeroSequencial> -->\r\n            </bm:parcelaAtivo>\r\n            <bm:periodoVigencia>\r\n                <!-- <bo:inicio>2018-06-01T00:00:00</bo:inicio> -->\r\n                <!-- <bo:fim>2018-07-01T00:00:00</bo:fim> -->\r\n            </bm:periodoVigencia>\r\n            <bm:tipo>\r\n\t\t\t\t<!-- EXPRESSAO ou SUB_EXPRESSAO -->\r\n                <bo:nome>EXPRESSAO</bo:nome>\r\n            </bm:tipo>\r\n            <bm:tipoRelacionamento>\r\n\t\t\t\t<!-- PROPRIETARIO ou CONCESSIONARIO  -->\r\n                <bo:nome>PROPRIETARIO</bo:nome>\r\n            </bm:tipoRelacionamento>\r\n        </bm:listarExpressaoContabilRequest>\r\n    </soapenv:Body>\t\r\n</soapenv:Envelope>"
+											"raw": "<soapenv:Envelope\r\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\r\n\txmlns:mh=\"http://xmlns.energia.org.br/MH/v2\"\r\n\txmlns:bm=\"http://xmlns.energia.org.br/BM/v2\"\r\n\txmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n\t<soapenv:Header>\r\n\t\t<mh:messageHeader>\r\n\t\t\t<mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n\t\t</mh:messageHeader>\r\n\t\t<oas:Security>\r\n\t\t\t<oas:UsernameToken>\r\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\r\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\r\n\t\t\t</oas:UsernameToken>\r\n\t\t</oas:Security>\r\n\t\t<mh:paginacao>\r\n\t\t\t<mh:numero>1</mh:numero>\r\n\t\t\t<mh:quantidadeItens>2</mh:quantidadeItens>\r\n\t\t</mh:paginacao>\r\n\t</soapenv:Header>\r\n   <soapenv:Body>\r\n        <bm:listarExpressaoContabilRequest>\r\n            <bm:parcelaAtivo>\r\n                <bo:ativoMedicao>\r\n\t\t\t\t\t<!-- Número do ativo -->\r\n                    <bo:numero>{{testeCodigoAtivo}}</bo:numero>\r\n                </bo:ativoMedicao>\r\n\t\t\t\t<!-- Número da parcela de ativo -->\r\n                <!-- <bo:numeroSequencial>123</bo:numeroSequencial> -->\r\n            </bm:parcelaAtivo>\r\n            <bm:periodoVigencia>\r\n                <!-- <bo:inicio>2018-06-01T00:00:00</bo:inicio> -->\r\n                <!-- <bo:fim>2018-07-01T00:00:00</bo:fim> -->\r\n            </bm:periodoVigencia>\r\n            <bm:tipo>\r\n\t\t\t\t<!-- EXPRESSAO ou SUB_EXPRESSAO -->\r\n                <bo:nome>EXPRESSAO</bo:nome>\r\n            </bm:tipo>\r\n            <bm:tipoRelacionamento>\r\n\t\t\t\t<!-- PROPRIETARIO ou CONCESSIONARIO  -->\r\n                <bo:nome>PROPRIETARIO</bo:nome>\r\n            </bm:tipoRelacionamento>\r\n        </bm:listarExpressaoContabilRequest>\r\n    </soapenv:Body>\t\r\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "{{host}}/ws/v2/ExpressaoContabilBSv2",
@@ -300,7 +303,10 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "<soapenv:Envelope\r\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\r\n\txmlns:mh=\"http://xmlns.energia.org.br/MH/v2\"\r\n\txmlns:bm=\"http://xmlns.energia.org.br/BM/v2\"\r\n\txmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n\t<soapenv:Header>\r\n\t\t<mh:messageHeader>\r\n\t\t\t<mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n\t\t</mh:messageHeader>\r\n\t\t<oas:Security>\r\n\t\t\t<oas:UsernameToken>\r\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\r\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\r\n\t\t\t</oas:UsernameToken>\r\n\t\t</oas:Security>\r\n\t\t<mh:paginacao>\r\n\t\t\t<mh:numero>1</mh:numero>\r\n\t\t\t<mh:quantidadeItens>2</mh:quantidadeItens>\r\n\t\t</mh:paginacao>\r\n\t</soapenv:Header>\r\n   <soapenv:Body>\r\n        <bm:listarExpressaoContabilRequest>\r\n            <bm:parcelaAtivo>\r\n                <bo:ativoMedicao>\r\n\t\t\t\t\t<!-- Número do ativo -->\r\n                    <bo:numero>{{testeCodigoAtivo}}</bo:numero>\r\n                </bo:ativoMedicao>\r\n\t\t\t\t<!-- Número da parcela de ativo -->\r\n                <!-- <bo:numeroSequencial>123</bo:numeroSequencial> -->\r\n            </bm:parcelaAtivo>\r\n            <bm:periodoVigencia>\r\n                <!-- <bo:inicio>2018-06-01T00:00:00</bo:inicio> -->\r\n                <!-- <bo:fim>2018-07-01T00:00:00</bo:fim> -->\r\n            </bm:periodoVigencia>\r\n            <bm:tipo>\r\n\t\t\t\t<!-- EXPRESSAO ou SUB_EXPRESSAO -->\r\n                <bo:nome>SUB_EXPRESSAO</bo:nome>\r\n            </bm:tipo>\r\n            <bm:tipoRelacionamento>\r\n\t\t\t\t<!-- PROPRIETARIO ou CONCESSIONARIO  -->\r\n                <bo:nome>PROPRIETARIO</bo:nome>\r\n            </bm:tipoRelacionamento>\r\n        </bm:listarExpressaoContabilRequest>\r\n    </soapenv:Body>\t\r\n</soapenv:Envelope>"
+											"raw": "<soapenv:Envelope\r\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\r\n\txmlns:mh=\"http://xmlns.energia.org.br/MH/v2\"\r\n\txmlns:bm=\"http://xmlns.energia.org.br/BM/v2\"\r\n\txmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n\t<soapenv:Header>\r\n\t\t<mh:messageHeader>\r\n\t\t\t<mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n\t\t</mh:messageHeader>\r\n\t\t<oas:Security>\r\n\t\t\t<oas:UsernameToken>\r\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\r\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\r\n\t\t\t</oas:UsernameToken>\r\n\t\t</oas:Security>\r\n\t\t<mh:paginacao>\r\n\t\t\t<mh:numero>1</mh:numero>\r\n\t\t\t<mh:quantidadeItens>2</mh:quantidadeItens>\r\n\t\t</mh:paginacao>\r\n\t</soapenv:Header>\r\n   <soapenv:Body>\r\n        <bm:listarExpressaoContabilRequest>\r\n            <bm:parcelaAtivo>\r\n                <bo:ativoMedicao>\r\n\t\t\t\t\t<!-- Número do ativo -->\r\n                    <bo:numero>{{testeCodigoAtivo}}</bo:numero>\r\n                </bo:ativoMedicao>\r\n\t\t\t\t<!-- Número da parcela de ativo -->\r\n                <!-- <bo:numeroSequencial>123</bo:numeroSequencial> -->\r\n            </bm:parcelaAtivo>\r\n            <bm:periodoVigencia>\r\n                <!-- <bo:inicio>2018-06-01T00:00:00</bo:inicio> -->\r\n                <!-- <bo:fim>2018-07-01T00:00:00</bo:fim> -->\r\n            </bm:periodoVigencia>\r\n            <bm:tipo>\r\n\t\t\t\t<!-- EXPRESSAO ou SUB_EXPRESSAO -->\r\n                <bo:nome>SUB_EXPRESSAO</bo:nome>\r\n            </bm:tipo>\r\n            <bm:tipoRelacionamento>\r\n\t\t\t\t<!-- PROPRIETARIO ou CONCESSIONARIO  -->\r\n                <bo:nome>PROPRIETARIO</bo:nome>\r\n            </bm:tipoRelacionamento>\r\n        </bm:listarExpressaoContabilRequest>\r\n    </soapenv:Body>\t\r\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
 										},
 										"url": {
 											"raw": "{{host}}/ws/v2/ExpressaoContabilBSv2",
@@ -394,7 +400,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3ea68075-c727-4d20-bda3-2e89a8dea085",
+										"id": "2f202610-1a69-46ac-af86-445f83b372f9",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -404,7 +410,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "07e966f3-e393-41d8-816a-ef723a9edd18",
+										"id": "9b143508-7838-4483-b23e-0f9dec5dba90",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -424,7 +430,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "cf62b1a1-0491-45e7-bb10-b2f76a652096",
+												"id": "f79f8bb0-4314-4176-b25f-adae6deee8e7",
 												"exec": [
 													""
 												],
@@ -434,7 +440,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "ccf35442-1d3e-4096-ab0a-35bf38944d9d",
+												"id": "3e01e9ca-7dc2-4aee-b4a3-6206abd51a5d",
 												"exec": [
 													""
 												],
@@ -551,7 +557,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7c8db6a2-a808-4bec-9649-b00ba7abaa41",
+										"id": "1ec1285c-3f3b-4cda-8560-6806c3c6b140",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -561,7 +567,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e4af5f00-90d4-44df-825f-432008baad3a",
+										"id": "9d2c05ac-8c5f-4427-aa18-18b4f59c1353",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -581,7 +587,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "356ee718-89e6-4d8d-ae82-125c42634783",
+												"id": "59767487-87e8-4f8a-9221-0e990bba0b2f",
 												"exec": [
 													""
 												],
@@ -591,7 +597,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "94f228b3-6d0b-435e-9248-b8c6fe94f1e5",
+												"id": "eb624a58-cb9d-4658-bc0b-05a1e958ca64",
 												"exec": [
 													""
 												],
@@ -716,7 +722,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "d1ede127-dc3a-4609-a442-9b7b18b7b046",
+												"id": "5aeb689b-3427-40b6-a38a-d99356c36c06",
 												"exec": [
 													""
 												],
@@ -726,7 +732,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "85c30d47-0bd0-4fbc-be23-c4362d6a983e",
+												"id": "656f23c8-0b90-4226-b90d-54cc5bd8908b",
 												"exec": [
 													""
 												],
@@ -851,7 +857,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "aa7ec56e-3946-4c9e-a187-b5e89d53972a",
+										"id": "8baee85d-974b-456d-b73c-264da8775f95",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -861,7 +867,294 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e3a9a1a7-1e8d-481b-88d0-a5bfdaca1348",
+										"id": "ff99eb9f-1bdf-41e3-af3e-70114a52d6be",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Parcelas de carga",
+							"item": [
+								{
+									"name": "Listar parcelas de carga",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "32446455-1a74-4dd8-a367-57c56fc13420",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "13b3a429-e99a-4f57-9b00-87002aaee457",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarParcelaCarga"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n      <bmv2:listarParcelaCargaRequest>\n         <bmv2:parcelaAtivo>\n            <bov2:codigo>{{testeCodigoParcela}}</bov2:codigo>\n            <bov2:ativoMedicao>\n               <!--<bov2:numero>{{testeCodigoAtivo}}</bov2:numero>-->\n            </bov2:ativoMedicao>\n            <bov2:vigencia>\n               <bov2:inicio>2017-03-01T00:00:00</bov2:inicio>\n               <bov2:fim>2017-04-03T00:00:00</bov2:fim>\n            </bov2:vigencia>\n         </bmv2:parcelaAtivo>\n         <bmv2:tipoRelacionamento>\n            <bov2:nome>PROPRIETARIO</bov2:nome>\n         </bmv2:tipoRelacionamento>\n      </bmv2:listarParcelaCargaRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/h02{{uriParcelaCarga}}",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"h02{{uriParcelaCarga}}"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarParcelaAtivo](http://www.ccee.org.br/ccee/documentos/CCEE_651802)"
+									},
+									"response": [
+										{
+											"name": "Listar parcelas de carga",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarParcelaCarga"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n      <bmv2:listarParcelaCargaRequest>\n         <bmv2:parcelaAtivo>\n            <bov2:codigo>{{testeCodigoParcela}}</bov2:codigo>\n            <bov2:ativoMedicao>\n               <!--<bov2:numero>{{testeCodigoAtivo}}</bov2:numero>-->\n            </bov2:ativoMedicao>\n            <bov2:vigencia>\n               <bov2:inicio>2015-03-01T00:00:00</bov2:inicio>\n               <bov2:fim>2015-04-03T00:00:00</bov2:fim>\n            </bov2:vigencia>\n         </bmv2:parcelaAtivo>\n         <bmv2:tipoRelacionamento>\n            <bov2:nome>PROPRIETARIO</bov2:nome>\n         </bmv2:tipoRelacionamento>\n      </bmv2:listarParcelaCargaRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}{{uriParcelaCarga}}",
+													"host": [
+														"{{host}}{{uriParcelaCarga}}"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d5120514d2e484f4d2e494e544547122f655f16cbc421</MsgId><CorrelId>414d5120514d2e484f4d2e494e544547122f655f16cbc421</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>QM.HOM.INTEGRACAO.02                            </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20200922</PutDate><PutTime>18030228</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "3635472"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 22 Sep 2020 18:03:02 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>123412378-1234-1234-1234-1234123789012</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n        <hdr:paginacao>\n            <hdr:numero>1</hdr:numero>\n            <hdr:quantidadeItens>1</hdr:quantidadeItens>\n            <hdr:totalPaginas>1</hdr:totalPaginas>\n            <hdr:quantidadeTotalItens>1</hdr:quantidadeTotalItens>\n        </hdr:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarParcelaCargaResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:parcelasCarga>\n                <bov2:parcelaCarga>\n                    <bov2:ativoMedicao>\n                        <bov2:codigo>CODIGOATIVO</bov2:codigo>\n                        <bov2:nomeReduzido>NOME_REDUZIDO</bov2:nomeReduzido>\n                        <bov2:numero>99999</bov2:numero>\n                        <bov2:tipo>\n                            <bov2:identificador>CARGA</bov2:identificador>\n                        </bov2:tipo>\n                        <bov2:situacao>\n                            <bov2:descricao>ATIVO</bov2:descricao>\n                        </bov2:situacao>\n                    </bov2:ativoMedicao>\n                    <bov2:situacao>ATIVO</bov2:situacao>\n                    <bov2:nomeReduzido>NOME_REDUZIDO</bov2:nomeReduzido>\n                    <bov2:numeroSequencial>99999</bov2:numeroSequencial>\n                    <bov2:submercado>\n                        <bov2:nome>Nordeste</bov2:nome>\n                    </bov2:submercado>\n                    <bov2:vigencia>\n                        <bov2:inicio>2015-09-01T00:00:00-03:00</bov2:inicio>\n                        <bov2:fim>2017-01-01T00:00:00-02:00</bov2:fim>\n                    </bov2:vigencia>\n                    <bov2:identificacao>\n                        <bov2:numero>12345678000199</bov2:numero>\n                        <bov2:tipo>\n                            <bov2:codigo>CNPJ</bov2:codigo>\n                        </bov2:tipo>\n                    </bov2:identificacao>\n                    <bov2:partes>\n                        <bov2:parte>\n                            <bov2:papel>PROPRIETARIOS</bov2:papel>\n                            <bov2:agente>\n                                <bov2:perfis>\n                                    <bov2:perfilAgente>\n                                        <bov2:codigo>123</bov2:codigo>\n                                    </bov2:perfilAgente>\n                                </bov2:perfis>\n                            </bov2:agente>\n                        </bov2:parte>\n                        <bov2:parte>\n                            <bov2:papel>DISTRIBUIDOR</bov2:papel>\n                            <bov2:agente>\n                                <bov2:perfis>\n                                    <bov2:perfilAgente/>\n                                </bov2:perfis>\n                            </bov2:agente>\n                        </bov2:parte>\n                        <bov2:parte>\n                            <bov2:papel>AUTORIZACAO_CONCESSIONARIO</bov2:papel>\n                            <bov2:agente>\n                                <bov2:perfis>\n                                    <bov2:perfilAgente>\n                                        <bov2:codigo>321</bov2:codigo>\n                                    </bov2:perfilAgente>\n                                </bov2:perfis>\n                            </bov2:agente>\n                        </bov2:parte>\n                    </bov2:partes>\n                    <bov2:capacidadeCarga>\n                        <bov2:unidadeMedida>mw</bov2:unidadeMedida>\n                        <bov2:valor>82</bov2:valor>\n                    </bov2:capacidadeCarga>\n                    <bov2:caracteristica>Opera&#231;&#227;o Normal</bov2:caracteristica>\n                    <bov2:endereco>\n                        <bov2:complemento>Outros</bov2:complemento>\n                        <bov2:estado>\n                            <bov2:descricao>SE</bov2:descricao>\n                        </bov2:estado>\n                    </bov2:endereco>\n                    <bov2:indicadorCCER>false</bov2:indicadorCCER>\n                    <bov2:indicadorParcialmenteLivre>true</bov2:indicadorParcialmenteLivre>\n                    <bov2:periodoVersao>\n                        <bov2:inicio>2016-03-27T07:12:19-03:00</bov2:inicio>\n                    </bov2:periodoVersao>\n                </bov2:parcelaCarga>\n            </bmv2:parcelasCarga>\n        </bmv2:listarParcelaCargaResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nListar parcelas de ativos cadastradas na CCEE.\n\n# Acesso\nO serviço é exposto através de um *web service*.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442{{uriParcelaCarga}}?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br{{uriParcelaCarga}}\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442{{uriParcelaCarga}}?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br{{uriParcelaCarga}}\n",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "05c385be-e220-4fdb-9195-5c846bef4706",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "f4a1552c-e8aa-43a5-bb3a-1b6cf307bb9f",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Topologias",
+							"item": [
+								{
+									"name": "Listar topologias por ativo",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarTopologia"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n    <soapenv:Header>\r\n        <mh:messageHeader>\r\n            <mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n        </mh:messageHeader>\r\n        <mh:paginacao>\r\n            <mh:numero>1</mh:numero>\r\n            <mh:quantidadeItens>3</mh:quantidadeItens>\r\n        </mh:paginacao>\r\n        <oas:Security>\r\n            <oas:UsernameToken>\r\n                <oas:Username>{{AuthUsername}}</oas:Username>\r\n                <oas:Password>{{AuthPassword}}</oas:Password>\r\n            </oas:UsernameToken>\r\n        </oas:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <bm:listarTopologiaRequest>\r\n            <bm:parcelaAtivo>\r\n                <bo:ativoMedicao>\r\n                    <bo:numero>{{testeCodigoAtivo}}</bo:numero>\r\n                </bo:ativoMedicao>\r\n            </bm:parcelaAtivo>\r\n            <bm:periodo>\r\n                <bo:inicio>2012-06-01T00:00:00</bo:inicio>\r\n                <bo:fim>2012-05-01T00:00:00</bo:fim>\r\n            </bm:periodo>\r\n            <bm:tipoRelacionamento>\r\n                <!-- PROPRIETARIO ou CONCESSIONARIO  -->\r\n                <bo:nome>PROPRIETARIO</bo:nome>\r\n            </bm:tipoRelacionamento>\r\n        </bm:listarTopologiaRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{uriTopologia}}",
+											"host": [
+												"{{host}}{{uriTopologia}}"
+											]
+										},
+										"description": "# Requisitos\n\n* Serão obtidas as topologias utilizando os seguintes filtros:\n    - **Obrigatório**: Tipo de relacionamento (opções de proprietário, concessionário, concessionário influenciado), número do ativo;\n    - **Opcional**: período (caso o período não seja informado, o serviço deverá retornar a última modelagem concluída na CCEE na data atual);\n    - Todos os campos deverão ser preenchidos de forma unitária.\n\n* O serviço retornará todas as vigências da topologia em que o ponto está vinculado que contenham pelo menos uma hora dentro do período informado, caso o período não seja informado, o serviço retornará dados da última vigência da topologia em que o ponto está vinculado, onde a data atual se encaixe, respeitando o período que o agente é autorizado a obter as informações;\n\n* Autorização:\n    - **Agente proprietário**: pode-se obter dados quando o agente for proprietário de pelo menos uma parcela de ativo do ativo informado (dados de sua parcela e demais parcelas do ativo, no período em que se é proprietário de uma das parcelas do ativo);\n    - **Agente concessionário ou concessionário influenciado**: autorizado a obter dados do ativo que pertençam ao seu próprio período como agente concessionário ou concessionário influenciado do ativo."
+									},
+									"response": [
+										{
+											"name": "Listar topologias por ativo",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarTopologia"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n    <soapenv:Header>\r\n        <mh:messageHeader>\r\n            <mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n        </mh:messageHeader>\r\n        <mh:paginacao>\r\n            <mh:numero>1</mh:numero>\r\n            <mh:quantidadeItens>3</mh:quantidadeItens>\r\n        </mh:paginacao>\r\n        <oas:Security>\r\n            <oas:UsernameToken>\r\n                <oas:Username>{{AuthUsername}}</oas:Username>\r\n                <oas:Password>{{AuthPassword}}</oas:Password>\r\n            </oas:UsernameToken>\r\n        </oas:Security>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <bm:listarTopologiaRequest>\r\n            <bm:parcelaAtivo>\r\n                <bo:ativoMedicao>\r\n                    <bo:numero>{{testeCodigoAtivo}}</bo:numero>\r\n                </bo:ativoMedicao>\r\n            </bm:parcelaAtivo>\r\n            <bm:periodo>\r\n                <bo:inicio>2012-06-01T00:00:00</bo:inicio>\r\n                <bo:fim>2012-05-01T00:00:00</bo:fim>\r\n            </bm:periodo>\r\n            <bm:tipoRelacionamento>\r\n                <!-- PROPRIETARIO ou CONCESSIONARIO  -->\r\n                <bo:nome>PROPRIETARIO</bo:nome>\r\n            </bm:tipoRelacionamento>\r\n        </bm:listarTopologiaRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}{{uriTopologia}}",
+													"host": [
+														"{{host}}{{uriTopologia}}"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "32417712"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 06 Oct 2020 18:22:27 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n        <hdr:paginacao>\n            <hdr:numero>1</hdr:numero>\n            <hdr:quantidadeItens>3</hdr:quantidadeItens>\n            <hdr:totalPaginas>10</hdr:totalPaginas>\n            <hdr:quantidadeTotalItens>30</hdr:quantidadeTotalItens>\n        </hdr:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarTopologiaResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:topologias>\n                <bov2:topologia>\n                    <bov2:ativoMedicao>\n                        <bov2:numero>999</bov2:numero>\n                        <bov2:pontos>\n                            <bov2:pontoMedicao>\n                                <bov2:codigo>ABCDEFGH01-01</bov2:codigo>\n                                <bov2:tipo>\n                                    <bov2:nome>FISICO</bov2:nome>\n                                </bov2:tipo>\n                            </bov2:pontoMedicao>\n                        </bov2:pontos>\n                    </bov2:ativoMedicao>\n                </bov2:topologia>\n                <bov2:topologia>\n                    <bov2:ativoMedicao>\n                        <bov2:numero>999</bov2:numero>\n                        <bov2:pontos>\n                            <bov2:pontoMedicao>\n                                <bov2:codigo>ABCDEFGH02-02</bov2:codigo>\n                                <bov2:tipo>\n                                    <bov2:nome>FISICO</bov2:nome>\n                                </bov2:tipo>\n                            </bov2:pontoMedicao>\n                        </bov2:pontos>\n                    </bov2:ativoMedicao>\n                </bov2:topologia>\n                <bov2:topologia>\n                    <bov2:ativoMedicao>\n                        <bov2:numero>999</bov2:numero>\n                        <bov2:pontos>\n                            <bov2:pontoMedicao>\n                                <bov2:codigo>ABCDEFGH03-03</bov2:codigo>\n                                <bov2:tipo>\n                                    <bov2:nome>FISICO</bov2:nome>\n                                </bov2:tipo>\n                            </bov2:pontoMedicao>\n                        </bov2:pontos>\n                    </bov2:ativoMedicao>\n                </bov2:topologia>\n            </bmv2:topologias>\n        </bmv2:listarTopologiaResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nServiço responsável por listar topologias de um ativo de medição.\n\nA modelagem de ativos é iniciada no SigaCCEE e finalizada no CliqCCEE e apresenta as informações necessárias referentes a modelagem do ativo. Com a modelagem realizada, o ativo físico se torna um ativo contábil para a CCEE permitindo que possa ser considerado nos processamentos.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442{{uriTopologia}}?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br{{uriTopologia}}\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442{{uriTopologia}}?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br{{uriTopologia}}\n",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "65f08dfd-6c90-426e-840f-e0061ec33616",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "68d2174e-9e14-420f-aca1-0cabc01a7138",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -878,7 +1171,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f6903846-7a84-47ac-8a88-35eecaf1350a",
+								"id": "ffa19d97-4d07-4928-ba7b-130040141ff9",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -888,7 +1181,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "38044859-e821-47a0-b24b-1863c3fa3f9a",
+								"id": "1c658a8f-82f7-4834-b20e-e477c3f35ce1",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -911,7 +1204,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "3de22a66-e728-4699-9298-7f379a89df61",
+												"id": "5869fa1e-777b-468f-8602-9289a24ccf53",
 												"exec": [
 													""
 												],
@@ -921,7 +1214,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "495a55bc-35b1-4a33-9905-8592d87d6ca5",
+												"id": "59bfb37a-6f08-47e4-87fc-154729097c5d",
 												"exec": [
 													""
 												],
@@ -1043,7 +1336,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "862619bf-8a3d-4929-afb2-8b77f638a67e",
+										"id": "eab1a1bb-981e-4427-bcd4-3c8aee0a8707",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1053,7 +1346,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a68891b9-bf03-4b61-91d2-e538a80bc4b6",
+										"id": "d7c3dd4b-a79c-4491-9ea4-4e72c04a3617",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1073,7 +1366,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "2d7bba7f-8471-4dce-8837-c285a12f87dd",
+												"id": "89c332ab-309c-40d9-b76d-3a81169e5cac",
 												"exec": [
 													""
 												],
@@ -1083,7 +1376,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "93fe132d-c973-400c-bf76-6d03326643d5",
+												"id": "246b8328-e657-4c56-a5bb-127fd71bb0ef",
 												"exec": [
 													""
 												],
@@ -1204,7 +1497,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3b9e2ca0-1607-4016-8006-a1b93219bfec",
+										"id": "4a8e92d2-ab7b-41c8-9248-014d34abab05",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1214,7 +1507,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "256aaa84-1290-4912-ab7f-962d250fdf14",
+										"id": "45b72854-a381-4a1c-af66-b6eb75154ae5",
 										"type": "text/javascript",
 										"exec": [
 											"var jsonData = xml2Json(responseBody.replace(/(\\<\\/?)([a-z0-9]+\\:)(.*?\\>)/gi, \"$1$3\"));",
@@ -1299,7 +1592,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "a827c23a-92d2-4b35-9327-29188ac05192",
+												"id": "0e1d6579-f0b4-4d10-b4a3-27ef3413d055",
 												"exec": [
 													""
 												],
@@ -1309,7 +1602,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "89f6a856-b1d9-481b-a3d0-f9f1b30e6abf",
+												"id": "a7fbf7de-1ad3-4011-9929-cfdc84d2c6c5",
 												"exec": [
 													""
 												],
@@ -1412,7 +1705,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2946471a-430b-4375-be64-464904734b5e",
+										"id": "141197aa-52f7-4ac3-a92a-577d678b01aa",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1422,7 +1715,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5d3db2fc-2552-4ea6-86f4-5772a34adc25",
+										"id": "4a5a93cd-b165-4ef3-a2f1-22b3d7dd0e25",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1442,7 +1735,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "740db5e0-f760-431c-be1e-9048e9884917",
+												"id": "fce51eb7-72d1-4790-9776-0709b945245f",
 												"exec": [
 													""
 												],
@@ -1452,7 +1745,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "2a3f103e-3cb6-4a52-ab91-c1ea7986a930",
+												"id": "f03248e4-ca7e-4b14-bb48-e8ce5dec4ea4",
 												"exec": [
 													""
 												],
@@ -1555,7 +1848,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "d60203ab-6bf1-4e60-873b-40975e30c392",
+												"id": "e3f011a7-faba-45ff-95a7-868309542399",
 												"exec": [
 													""
 												],
@@ -1565,7 +1858,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "c6e02eb3-193c-4229-8f3e-3bd0ccf3d054",
+												"id": "0c5f8f10-a557-44fc-9b26-0d3d77f088ab",
 												"exec": [
 													""
 												],
@@ -1668,7 +1961,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "7b1ab0b5-dbbf-47dc-a9a4-7491a27c6934",
+												"id": "e2254913-4f47-4c0d-8ea2-ab1553abae06",
 												"exec": [
 													""
 												],
@@ -1678,7 +1971,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "02a78c55-be9e-4e75-beb4-a5dbd005a92f",
+												"id": "ad70c3a8-e9cf-469e-8cfd-5150fd9a7e9e",
 												"exec": [
 													""
 												],
@@ -1781,7 +2074,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "646b058a-19b6-4c37-b355-97bd432e4cb4",
+												"id": "712b8d61-20d4-4fc1-a647-788d8178bc16",
 												"exec": [
 													""
 												],
@@ -1791,7 +2084,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "84f92aa4-24a7-4451-8463-014886e7cf3d",
+												"id": "23580113-8a0f-4b23-bd72-6d74fdc43fa9",
 												"exec": [
 													""
 												],
@@ -1894,7 +2187,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bf246404-0403-4e45-8a1f-6ada8d105495",
+										"id": "76168d2f-c299-40fd-a394-ca9d30ff7723",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1904,7 +2197,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ed760a5b-d124-4d2b-9f62-1ddcdb5043b9",
+										"id": "2ac08da2-dc30-47ad-9b2f-11b38abc510d",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -1924,7 +2217,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "ecd6ecf8-72bf-4fd6-b3c8-85908a5d2db6",
+												"id": "dc7da19a-ae29-4edf-b492-f5325786ac6d",
 												"exec": [
 													""
 												],
@@ -1934,7 +2227,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "6d8539f0-fc95-4f1d-8c5a-f01a98783d13",
+												"id": "7a4c39ee-071e-4cd8-8c30-e2f3a37968e0",
 												"exec": [
 													""
 												],
@@ -2037,7 +2330,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "cf135f7e-3db9-44a6-a850-227683e0a4d7",
+												"id": "81692a9e-0810-4b55-ba33-bd4f89310cf6",
 												"exec": [
 													""
 												],
@@ -2047,7 +2340,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "3ca7c612-78de-4aaa-b63d-a28e1cf950b3",
+												"id": "71030ca2-c1ff-4e8d-9463-85bade0e5a36",
 												"exec": [
 													""
 												],
@@ -2150,7 +2443,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "d6b37ed5-d6ba-40a7-a7df-351bfd124e8a",
+												"id": "c123a7f9-47c3-4d45-bcc6-e316ab26a138",
 												"exec": [
 													""
 												],
@@ -2160,7 +2453,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "f2e54d1f-d1a1-40bc-a634-4ca77e1ec003",
+												"id": "a58ab988-4a95-46cb-80bb-907e642e5046",
 												"exec": [
 													""
 												],
@@ -2263,7 +2556,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "22958749-3e89-4ae9-8d16-e96277d4d79f",
+												"id": "e1e771e1-ac0b-4bee-bee9-cce207f55359",
 												"exec": [
 													""
 												],
@@ -2273,7 +2566,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "4a005cd2-369f-4dc1-ae06-f8ba1eaf72fb",
+												"id": "a7a3ddd1-cfce-4cef-a494-55e194763207",
 												"exec": [
 													""
 												],
@@ -2376,7 +2669,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "c7546e42-52e2-440e-ac7b-ad50bad12639",
+												"id": "56816fab-3009-497e-96ce-ca2e25e3cb08",
 												"exec": [
 													""
 												],
@@ -2386,7 +2679,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "8a72173a-4908-4484-a25d-f9b1344fdde4",
+												"id": "320afa19-5cf9-4c33-b6f5-c8b29257a5ea",
 												"exec": [
 													""
 												],
@@ -2489,7 +2782,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "b39bab89-38ab-4cb0-8b5b-983711a98323",
+												"id": "af3e8dd2-d4c3-4ecc-93bf-2826bff73d5a",
 												"exec": [
 													""
 												],
@@ -2499,7 +2792,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "57ebe6e5-a81a-4f53-9385-122787a3c964",
+												"id": "d5e45d78-de2b-4567-999b-093e3f8898b5",
 												"exec": [
 													""
 												],
@@ -2607,7 +2900,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2303c673-56b2-4152-b863-487662432fe8",
+								"id": "a7e85146-c2a5-468a-a9c3-16ea21c08916",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2617,7 +2910,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "df5baf8f-a4a0-4e9f-bfba-fc3dc037d62b",
+								"id": "cab7ddb2-2fbf-427a-a040-4bfda9d6d567",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -2640,7 +2933,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "fb7173b0-25b5-4a37-8ca0-54afd3632aa1",
+												"id": "9ba034f5-fafc-40a7-a781-37a98285c9cd",
 												"exec": [
 													""
 												],
@@ -2650,7 +2943,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "265f2fb0-3605-4223-a234-45d9d5615424",
+												"id": "c74274dd-569f-4dea-9770-03d1ebc69464",
 												"exec": [
 													""
 												],
@@ -2771,7 +3064,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f950adbe-5306-45cf-b173-4a38fb9d0259",
+										"id": "88914f02-3cf5-442b-92f7-967031981439",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -2781,7 +3074,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "42b00964-058f-4a16-a17e-ebe40b12c54d",
+										"id": "e9107439-dc6b-4297-9e8d-2bb2279435ea",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -2801,7 +3094,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "4e4c1eb7-457e-4f6a-bb08-e67e0d000d86",
+												"id": "326aad2f-d353-4bf8-ab4d-655e425a952c",
 												"exec": [
 													""
 												],
@@ -2811,7 +3104,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "6c5f113d-0772-46c7-8ff6-7d616d77f6dd",
+												"id": "f7a05695-1d1b-4d1b-b3bc-9b9ef0eb1743",
 												"exec": [
 													""
 												],
@@ -2929,7 +3222,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "c4ee2601-fc75-43b5-8cba-fe7bd831ae8b",
+												"id": "bcef52f0-fb66-413a-a838-c1d563b216de",
 												"exec": [
 													""
 												],
@@ -2939,7 +3232,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "2a44711c-1ee9-45a4-9994-02939142ebab",
+												"id": "9d172515-be17-4323-b81b-882844e696d9",
 												"exec": [
 													""
 												],
@@ -3057,7 +3350,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "365dc306-c1d4-4827-951b-9f3609fd9bcc",
+										"id": "41e09767-ba26-4c06-a742-053bbd41cd74",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -3067,7 +3360,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2b4a4321-fef3-48af-89a7-e5e120cd2bf7",
+										"id": "0ca400a6-6c14-4d4f-920c-03b8babd32bf",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -3087,7 +3380,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "8b7f1422-be45-4c7e-b2c5-ebb61900e5af",
+												"id": "58bb9029-de51-4870-b33f-040f056212a7",
 												"exec": [
 													""
 												],
@@ -3097,7 +3390,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "47e45976-4a41-4bda-9ceb-5680332a6339",
+												"id": "6f030884-d0b8-432d-aa8d-22dbbdd783ff",
 												"exec": [
 													""
 												],
@@ -3218,7 +3511,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "ba462c01-d2f9-465e-89bf-8ab38bb464bc",
+												"id": "5e47462d-a195-4e56-b7d4-2501fe85166e",
 												"exec": [
 													""
 												],
@@ -3228,7 +3521,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "4c6547c7-9899-4d25-83f6-4266b6cf5880",
+												"id": "ce604ab1-14b1-4911-8e63-4556318e791f",
 												"exec": [
 													""
 												],
@@ -3349,7 +3642,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "570cc279-6638-4cf9-a96c-5b05e8d01de4",
+												"id": "ea463079-d0aa-47c0-af5f-68ee362ac394",
 												"exec": [
 													""
 												],
@@ -3359,7 +3652,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "2896ada7-7360-477a-ac8b-5c3bc7ecba5e",
+												"id": "1d42bfa7-55a7-4e67-9e2f-25e55c176d1e",
 												"exec": [
 													""
 												],
@@ -3480,7 +3773,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "acc1b4ff-09b6-4c49-8cff-14ef312177e2",
+												"id": "68be7a70-59c8-445d-a8a1-13d00215fa74",
 												"exec": [
 													""
 												],
@@ -3490,7 +3783,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "12a8adb6-73e8-41ae-9c1c-2a5ab972f26f",
+												"id": "41806603-d3ee-4a31-9403-37f0ae29497e",
 												"exec": [
 													""
 												],
@@ -3533,58 +3826,6 @@
 										"description": "Exemplo de lista de resultados de um acrônimo com dimensão horária, onde também é exigido o envio do código do contrato como filtro.\r\n\r\nCampos necessários | Observações\r\n--- | ---\r\nPaginação, id do acrônimo, código do agente, código do evento contábil, perfil do agente e usuário logado.\t | \tApenas um acrônimo por perfil de agente.\r\n\r\nOs campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarResultado](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654132&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
 									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										},
 										{
 											"name": "Acrônimo com dimensão horária - CQ_EFE_CE e,j",
 											"originalRequest": {
@@ -3654,6 +3895,58 @@
 											],
 											"cookie": [],
 											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\">\n    <soapenv:Header>\n        <mh:messageHeader>\n            <mh:transactionId>123412378-1234-1234-1234-1234123789012</mh:transactionId>\n            <mh:versao xsi:nil=\"true\"/>\n        </mh:messageHeader>\n        <mh:paginacao>\n            <mh:numero>1</mh:numero>\n            <mh:quantidadeItens>2</mh:quantidadeItens>\n            <mh:totalPaginas>1</mh:totalPaginas>\n            <mh:quantidadeTotalItens>1</mh:quantidadeTotalItens>\n        </mh:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarResultadoResponse xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n            <bmv2:resultados>\n                <bov2:resultado>\n                    <bov2:acronimos>\n                        <bov2:acronimo>\n                            <bov2:id>138</bov2:id>\n                            <bov2:nome>CQ_EFE_CE e,j</bov2:nome>\n                        </bov2:acronimo>\n                    </bov2:acronimos>\n                    <bov2:nomes>\n                        <bov2:nome>'QT_CQ_EFE_CE', 'CODIGO_AGENTE_COMPRADOR', 'CODIGO_AGENTE_VENDEDOR', 'CODIGO_CNPJ_COMPRADOR', 'CODIGO_CNPJ_VENDEDOR', 'SIGLA_AGENTE_COMPRADOR', 'SIGLA_AGENTE_VENDEDOR', 'CODIGO_CEG', 'DATA_FIM_VIGENCIA_ATIV', 'DATA_INICIO_VIGENCIA_ATIV', 'SIGLA_ATIVO', 'CODIGO_ATIVO', 'CODIGO_CONTRATO', 'DATA_INICIO_SUPRIMENTO_CONTRATO', 'DATA_FIM_VIGENCIA_CNTR', 'DATA_FIM_SUPRIMENTO_CONTRATO', 'DATA_INICIO_VIGENCIA_CNTR', 'TIPO_CONTRATO', 'CODIGO_EVENTO', 'MES_ANO_EVENTO', 'NOME_EVENTO', 'HORA', 'NOME_LEILAO', 'CODIGO_LEILAO', 'CODIGO_CNPJ_ATIVO', 'SIGLA_PARCELA_ATIVO', 'CODIGO_PARCELA_ATIVO', 'CODIGO_PERFIL_AGENTE_VENDEDOR', 'CODIGO_PERFIL_AGENTE_COMPRADOR', 'SIGLA_PERFIL_AGENTE_VENDEDOR', 'SIGLA_PERFIL_AGENTE_COMPRADOR', 'NOME_PRODUTO', 'CODIGO_PROD', 'SEMANA', 'CODIGO_SEMANA', 'CODIGO_SUBMERCADO_ORIGEM', 'CODIGO_SUBMERCADO_DESTINO', 'SUBMERCADO', 'SUBMERCADO_ORIGEM', 'TIPO_PATAMAR'</bov2:nome>\n                    </bov2:nomes>\n                    <bov2:valores>\n                        <bov2:valor>\n                            <bov2:Item>'','30','123','12345678000199','98765432000101','PERFIL','MINHASIGLA','UHE.YYZ','','01/07/2018 00:00:00','PERFIL','897','987','31/12/2019','31/12/2019 23:00:00','01/05/2017','01/02/2019 00:00:00','CCEAR-Q','201903098000','201903','2019_03 - MEM&#211;RIA C&#193;LCULO GARANTIA FINANCEIRA','25/03/2019 16:00:00 -03:00','1&#186; Leil&#227;o de Energia Existente','986','98765432000101','PERFIL','897','123','30','MINHASIGLA','PERFIL','2017-6','419','5&#170; Semana','2019035','-98','1','&#160;','SUDESTE','1'</bov2:Item>\n                            <bov2:Item>'','30','123','12345678000199','98765432000101','PERFIL','MINHASIGLA','UHE.YYZ','','01/07/2018 00:00:00','PERFIL','897','987','31/12/2019','31/12/2019 23:00:00','01/05/2017','01/02/2019 00:00:00','CCEAR-Q','201903098000','201903','2019_03 - MEM&#211;RIA C&#193;LCULO GARANTIA FINANCEIRA','27/03/2019 16:00:00 -03:00','1&#186; Leil&#227;o de Energia Existente','986','98765432000101','PERFIL','897','123','30','MINHASIGLA','PERFIL','2017-6','419','5&#170; Semana','2019035','-98','1','&#160;','SUDESTE','1'</bov2:Item>\n                        </bov2:valor>\n                    </bov2:valores>\n                </bov2:resultado>\n            </bmv2:resultados>\n        </bmv2:listarResultadoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										},
+										{
+											"name": "Listar Ativos de Medição",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "text/xml; charset=utf-8"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarAtivoMedicao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
+												},
+												"url": {
+													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"AtivoMedicaoBSv2"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "X-Backside-Transport",
+													"value": "FAIL FAIL"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
 										}
 									]
 								}
@@ -3671,7 +3964,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "941d5d35-e9a5-4c89-bfd0-e11345121325",
+												"id": "dd087584-153f-4094-8a9b-12baa2d702bf",
 												"exec": [
 													""
 												],
@@ -3681,7 +3974,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "6ae24676-9fd7-424f-8f74-800fc8436260",
+												"id": "3a131b8a-05c7-46c7-861f-897881f25b88",
 												"exec": [
 													""
 												],
@@ -3803,7 +4096,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0d68f55c-21cc-46ef-a1a9-4e82c856ca50",
+										"id": "bb7d17d0-7afc-4859-9e21-e4989d46b229",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -3813,7 +4106,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "29372ca2-5542-4a81-960c-210e782ceacb",
+										"id": "f5751039-faa9-4abe-b818-15043f348922",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -3833,7 +4126,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "01f52dae-7fd6-4107-8506-fa92e83184de",
+												"id": "a3b3e6b5-8fed-4dfd-806d-2a2eb1c0b32b",
 												"exec": [
 													""
 												],
@@ -3843,7 +4136,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "4eafdcc4-eb1a-4773-9bbe-b5b52a432a87",
+												"id": "f78317d1-c74e-41e8-9c73-3b52e17202d3",
 												"exec": [
 													""
 												],
@@ -3965,7 +4258,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7e0d3b49-40a6-4aad-95a4-41807ee140ba",
+										"id": "d6f6009b-d8d3-4375-9278-ac4e55121875",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -3975,7 +4268,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "27c38214-77a0-42eb-abd9-7fa66b05c5d3",
+										"id": "4eda3507-f8d5-4594-9eb4-f8359dc50acb",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -4122,7 +4415,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bdf143e9-b641-4ca3-9b50-c850e609c2a6",
+										"id": "f3b7e237-d484-46d9-a0b9-a0352a1cf7d2",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -4132,7 +4425,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f05109a4-275a-4fc6-8b1b-7cc803ea3266",
+										"id": "c553a2c0-5f88-4e56-a110-294118ae4df5",
 										"type": "text/javascript",
 										"exec": [
 											"var jsonData = xml2Json(responseBody.replace(/(\\<\\/?)([a-z0-9]+\\:)(.*?\\>)/gi, \"$1$3\"));",
@@ -4143,6 +4436,392 @@
 											"    const qtde = jsonData.Envelope.Body.listarMedidaResponse.medidas.medida.length;",
 											"    console.log(qtde);",
 											"    tests[\"Quantidade de itens: \" + ((qtde > 0))] = true;",
+											"}",
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Coleta Medicao",
+							"item": [
+								{
+									"name": "Informar Coleta Medicao",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "informarColetaMedicao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:v21=\"http://xmlns.energia.org.br/BM/v2\" xmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\r\n   <soapenv:Header>\r\n      <v2:messageHeader>\r\n         <v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\r\n      </v2:messageHeader>\r\n      <oas:Security>\r\n         <oas:UsernameToken>\r\n            <oas:Username>{{AuthUsername}}</oas:Username>\r\n            <oas:Password>{{AuthPassword}}</oas:Password>\r\n         </oas:UsernameToken>\r\n      </oas:Security>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <v21:informarColetaMedicaoRequest>\r\n         <v21:configuracaoRetornoPiloto>\r\n            <v22:url>https://webservice-agente.com.br</v22:url>\r\n            <v22:parametros>\r\n               <v22:parametro>\r\n                  <v22:nome>login</v22:nome>\r\n                  <v22:valor>user</v22:valor>\r\n               </v22:parametro>\r\n               <v22:parametro>\r\n                  <v22:nome>senha</v22:nome>\r\n                  <v22:valor>12345678</v22:valor>\r\n               </v22:parametro>\r\n               <v22:parametro>\r\n                  <v22:nome>authorization</v22:nome>\r\n                  <v22:valor>1234567890123456789012345678901234</v22:valor>\r\n               </v22:parametro>\r\n            </v22:parametros>\r\n         </v21:configuracaoRetornoPiloto>\r\n         <v21:arquivo><![CDATA[\r\n<coleta xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n\t<medidor>\r\n\t\t<nmro_serie>XXXXXXXXXXXXXX</nmro_serie>\r\n\t\t<nmro_mae>XXXXXXXXXXXXXX</nmro_mae>\r\n\t\t<nmro_mae_mdr>XXXXXXXXXXXXXX</nmro_mae_mdr>\r\n\t\t<relacaotppri>175.0</relacaotppri>\r\n\t\t<relacaotpsec>1.0</relacaotpsec>\r\n\t\t<relacaotcpri>200.0</relacaotcpri>\r\n\t\t<relacaotcsec>1.0</relacaotcsec>\r\n\t\t<relacaotp>175</relacaotp>\r\n\t\t<relacaotc>200</relacaotc>\r\n\t</medidor>\r\n\t<energia const_integ=\"300\">\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"00:05:00\">\r\n\t\t\t<e_atv_in>15.3</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>8.21</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"00:10:00\">\r\n\t\t\t<e_atv_in>16.34</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>12.92</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"00:15:00\">\r\n\t\t\t<e_atv_in>19.24</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>4.33</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"23:50:00\">\r\n\t\t\t<e_atv_in>3.53</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>3.75</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"23:55:00\">\r\n\t\t\t<e_atv_in>6.85</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>2.32</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-10-01\" hora=\"00:00:00\">\r\n\t\t\t<e_atv_in>10.2</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>13.02</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t</energia>\r\n\t<engenharia const_integ=\"300\">\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"00:05:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>118.19</t_fase_a>\r\n\t\t\t\t<t_fase_b>114.49</t_fase_b>\r\n\t\t\t\t<t_fase_c>124.1</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.86</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.56</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.98</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"00:10:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>125.58</t_fase_a>\r\n\t\t\t\t<t_fase_b>115.17</t_fase_b>\r\n\t\t\t\t<t_fase_c>123.87</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.76</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.61</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.51</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"00:15:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>107.39</t_fase_a>\r\n\t\t\t\t<t_fase_b>113.29</t_fase_b>\r\n\t\t\t\t<t_fase_c>104.74</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.83</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.73</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.97</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"23:50:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>115.96</t_fase_a>\r\n\t\t\t\t<t_fase_b>113.97</t_fase_b>\r\n\t\t\t\t<t_fase_c>117.67</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.42</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.54</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.95</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"23:55:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>122.78</t_fase_a>\r\n\t\t\t\t<t_fase_b>113.93</t_fase_b>\r\n\t\t\t\t<t_fase_c>113.93</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.5</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.62</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.58</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-10-01\" hora=\"00:00:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>118.91</t_fase_a>\r\n\t\t\t\t<t_fase_b>117.26</t_fase_b>\r\n\t\t\t\t<t_fase_c>109.51</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.23</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.6</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.34</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t</engenharia>\r\n\t<alarme />\r\n</coleta>]]></v21:arquivo>\r\n      </v21:informarColetaMedicaoRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/ColetaMedicaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"ColetaMedicaoBSv2"
+											]
+										},
+										"description": "Este método será responsável pelo envio das coletas de medições através da Plataforma de Integração da CCEE.\n\nOs campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - informarColetaMedicao](http://www.ccee.org.br/ccee/documentos/CCEE_657232)"
+									},
+									"response": [
+										{
+											"name": "Informar Coleta Medicao",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "text/xml; charset=utf-8"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "informarColetaMedicao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:v21=\"http://xmlns.energia.org.br/BM/v2\" xmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\r\n   <soapenv:Header>\r\n      <v2:messageHeader>\r\n         <v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\r\n      </v2:messageHeader>\r\n      <oas:Security>\r\n         <oas:UsernameToken>\r\n            <oas:Username>{{AuthUsername}}</oas:Username>\r\n            <oas:Password>{{AuthPassword}}</oas:Password>\r\n         </oas:UsernameToken>\r\n      </oas:Security>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <v21:informarColetaMedicaoRequest>\r\n         <v21:configuracaoRetornoPiloto>\r\n            <v22:url>https://webservice-agente.com.br</v22:url>\r\n            <v22:parametros>\r\n               <v22:parametro>\r\n                  <v22:nome>login</v22:nome>\r\n                  <v22:valor>user</v22:valor>\r\n               </v22:parametro>\r\n               <v22:parametro>\r\n                  <v22:nome>senha</v22:nome>\r\n                  <v22:valor>12345678</v22:valor>\r\n               </v22:parametro>\r\n               <v22:parametro>\r\n                  <v22:nome>authorization</v22:nome>\r\n                  <v22:valor>1234567890123456789012345678901234</v22:valor>\r\n               </v22:parametro>\r\n            </v22:parametros>\r\n         </v21:configuracaoRetornoPiloto>\r\n         <v21:arquivo><![CDATA[\r\n<coleta xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n\t<medidor>\r\n\t\t<nmro_serie>XXXXXXXXXXXXXX</nmro_serie>\r\n\t\t<nmro_mae>XXXXXXXXXXXXXX</nmro_mae>\r\n\t\t<nmro_mae_mdr>XXXXXXXXXXXXXX</nmro_mae_mdr>\r\n\t\t<relacaotppri>175.0</relacaotppri>\r\n\t\t<relacaotpsec>1.0</relacaotpsec>\r\n\t\t<relacaotcpri>200.0</relacaotcpri>\r\n\t\t<relacaotcsec>1.0</relacaotcsec>\r\n\t\t<relacaotp>175</relacaotp>\r\n\t\t<relacaotc>200</relacaotc>\r\n\t</medidor>\r\n\t<energia const_integ=\"300\">\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"00:05:00\">\r\n\t\t\t<e_atv_in>15.3</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>8.21</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"00:10:00\">\r\n\t\t\t<e_atv_in>16.34</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>12.92</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"00:15:00\">\r\n\t\t\t<e_atv_in>19.24</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>4.33</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"23:50:00\">\r\n\t\t\t<e_atv_in>3.53</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>3.75</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-09-30\" hora=\"23:55:00\">\r\n\t\t\t<e_atv_in>6.85</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>2.32</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t\t<leitura_energ data=\"2020-10-01\" hora=\"00:00:00\">\r\n\t\t\t<e_atv_in>10.2</e_atv_in>\r\n\t\t\t<e_atv_out>0</e_atv_out>\r\n\t\t\t<e_rtv_in>13.02</e_rtv_in>\r\n\t\t\t<e_rtv_out>0</e_rtv_out>\r\n\t\t</leitura_energ>\r\n\t</energia>\r\n\t<engenharia const_integ=\"300\">\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"00:05:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>118.19</t_fase_a>\r\n\t\t\t\t<t_fase_b>114.49</t_fase_b>\r\n\t\t\t\t<t_fase_c>124.1</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.86</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.56</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.98</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"00:10:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>125.58</t_fase_a>\r\n\t\t\t\t<t_fase_b>115.17</t_fase_b>\r\n\t\t\t\t<t_fase_c>123.87</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.76</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.61</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.51</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"00:15:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>107.39</t_fase_a>\r\n\t\t\t\t<t_fase_b>113.29</t_fase_b>\r\n\t\t\t\t<t_fase_c>104.74</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.83</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.73</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.97</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"23:50:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>115.96</t_fase_a>\r\n\t\t\t\t<t_fase_b>113.97</t_fase_b>\r\n\t\t\t\t<t_fase_c>117.67</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.42</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.54</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.95</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-09-30\" hora=\"23:55:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>122.78</t_fase_a>\r\n\t\t\t\t<t_fase_b>113.93</t_fase_b>\r\n\t\t\t\t<t_fase_c>113.93</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.5</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.62</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.58</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t\t<leitura_eng data=\"2020-10-01\" hora=\"00:00:00\">\r\n\t\t\t<tensao>\r\n\t\t\t\t<t_fase_a>118.91</t_fase_a>\r\n\t\t\t\t<t_fase_b>117.26</t_fase_b>\r\n\t\t\t\t<t_fase_c>109.51</t_fase_c>\r\n\t\t\t</tensao>\r\n\t\t\t<corrente>\r\n\t\t\t\t<c_fase_a>0.23</c_fase_a>\r\n\t\t\t\t<c_fase_b>0.6</c_fase_b>\r\n\t\t\t\t<c_fase_c>0.34</c_fase_c>\r\n\t\t\t</corrente>\r\n\t\t</leitura_eng>\r\n\t</engenharia>\r\n\t<alarme />\r\n</coleta>]]></v21:arquivo>\r\n      </v21:informarColetaMedicaoRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/ColetaMedicaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"ColetaMedicaoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 01 Oct 2020 20:27:05 GMT"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "DENY"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "accept, content-type"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "1728000"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "26827072"
+												},
+												{
+													"key": "Warning",
+													"value": "214 InformarColetaMedicao-XMLFW DataPower Transformation Applied"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<env:Envelope xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <env:Header>\n        <mh:messageHeader>\n            <mh:transactionId>9ac509df-21c5-4c79-8bbc-da78d444b125</mh:transactionId>\n        </mh:messageHeader>\n    </env:Header>\n    <env:Body>\n        <v21:informarColetaMedicaoResponse xmlns:v21=\"http://xmlns.energia.org.br/BM/v2\">\n            <v21:ticket>999999999</v21:ticket>\n            <v21:perfilAgente>\n                <v22:id xmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">9999</v22:id>\n            </v21:perfilAgente>\n        </v21:informarColetaMedicaoResponse>\n    </env:Body>\n</env:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nEste serviço possibilitará ao agente enviar informações de coletas de medição através de uma chamada Web Service para a Plataforma de Integração da CCEE.\n\nO envio da coleta é efetuado através do método **informarColetaMedicao**.\n\nA tag <v21:configuracaoRetornoPiloto> e seu conteúdo somente deverá ser enviado somente no ambiente de piloto. No ambiente de produção, esta tag não deverá ser enviada.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442{{uriColetaMedicao}}?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:442{{uriColetaMedicao}}\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442{{uriColetaMedicao}}?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br:442{{uriColetaMedicao}}",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "694d7f68-c493-4020-9202-2d78216eb514",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "81b91c20-8159-4560-be6f-c9dbf77d11a5",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = xml2Json(responseBody.replace(/(\\<\\/?)([a-z0-9]+\\:)(.*?\\>)/gi, \"$1$3\"));",
+											"console.log(jsonData);",
+											"",
+											"const httpResponseCode = responseCode.code;",
+											"if ( httpResponseCode === 200 ){",
+											"    const qtde = jsonData.Envelope.Body.informarColetaMedicaoResponse.ticket.length;",
+											"    console.log(qtde);",
+											"    tests[\"Temos ticket na resposta: \" + ((qtde > 0))] = true;",
+											"}",
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Situacao Coleta Medicao",
+							"item": [
+								{
+									"name": "Obter Situacao Coleta Medicao",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "obterSituacaoColetaMedicao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:v21=\"http://xmlns.energia.org.br/BM/v2\">\r\n   <soapenv:Header>\r\n      <v2:messageHeader>\r\n         <v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\r\n      </v2:messageHeader>\r\n      <oas:Security>\r\n         <oas:UsernameToken>\r\n            <oas:Username>{{AuthUsername}}</oas:Username>\r\n            <oas:Password>{{AuthPassword}}</oas:Password>\r\n         </oas:UsernameToken>\r\n      </oas:Security>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <v21:obterSituacaoColetaMedicaoRequest>\r\n         <v21:ticket>999999999</v21:ticket>\r\n      </v21:obterSituacaoColetaMedicaoRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/SituacaoColetaMedicaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"SituacaoColetaMedicaoBSv2"
+											]
+										},
+										"description": "Este método será responsável pela consulta da situação das coletas de medições através da Plataforma de Integração da CCEE.\n\nOs campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - obterSituacaoColetaMedicao](http://www.ccee.org.br/ccee/documentos/CCEE_657234)"
+									},
+									"response": [
+										{
+											"name": "Obter Situacao Coleta Medicao",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "text/xml; charset=utf-8"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "obterSituacaoColetaMedicao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:v21=\"http://xmlns.energia.org.br/BM/v2\">\r\n   <soapenv:Header>\r\n      <v2:messageHeader>\r\n         <v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\r\n      </v2:messageHeader>\r\n      <oas:Security>\r\n         <oas:UsernameToken>\r\n            <oas:Username>{{AuthUsername}}</oas:Username>\r\n            <oas:Password>{{AuthPassword}}</oas:Password>\r\n         </oas:UsernameToken>\r\n      </oas:Security>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <v21:obterSituacaoColetaMedicaoRequest>\r\n         <v21:ticket>999999999</v21:ticket>\r\n      </v21:obterSituacaoColetaMedicaoRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/SituacaoColetaMedicaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"SituacaoColetaMedicaoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 01 Oct 2020 21:01:16 GMT"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, no-store, max-age=0, must-revalidate"
+												},
+												{
+													"key": "Pragma",
+													"value": "no-cache"
+												},
+												{
+													"key": "Expires",
+													"value": "0"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "DENY"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "POST"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "accept, content-type"
+												},
+												{
+													"key": "Access-Control-Max-Age",
+													"value": "1728000"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "26834128"
+												},
+												{
+													"key": "Warning",
+													"value": "214 ObterSituacaoColetaMedicao-XMLFW DataPower Transformation Applied"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<env:Envelope xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\">\n    <env:Header>\n        <mh:messageHeader>\n            <mh:transactionId>1643c428-a18e-4dd2-bb0f-28a70d71cf8e</mh:transactionId>\n        </mh:messageHeader>\n    </env:Header>\n    <env:Body>\n        <v21:obterSituacaoColetaMedicaoResponse xmlns:v21=\"http://xmlns.energia.org.br/BM/v2\">\n            <v21:codigo>200</v21:codigo>\n            <v21:descricao>Ticket processado com sucesso!</v21:descricao>\n            <v21:perfilAgente>\n                <v22:id xmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">9999</v22:id>\n            </v21:perfilAgente>\n            <v21:ticket>999999999</v21:ticket>\n        </v21:obterSituacaoColetaMedicaoResponse>\n    </env:Body>\n</env:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nEste serviço possibilitará ao agente consultar a situação da coleta de medição enviada pelo serviço ColetaMedicao através de uma chamada Web Service para a Plataforma de Integração da CCEE.\n\nA consulta da situação da coleta é efetuada através do método **obterSituacaoColetaMedicao**.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442{{uriSituacaoColetaMedicao}}?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:442{{uriSituacaoColetaMedicao}}\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442{{uriSituacaoColetaMedicao}}?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br:442{{uriSituacaoColetaMedicao}}",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "a5c181be-c244-415a-842b-e9bbf04043a9",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "9ff99a29-1977-4663-80b7-6a510ef2e8bd",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = xml2Json(responseBody.replace(/(\\<\\/?)([a-z0-9]+\\:)(.*?\\>)/gi, \"$1$3\"));",
+											"console.log(jsonData);",
+											"",
+											"const httpResponseCode = responseCode.code;",
+											"if ( httpResponseCode === 200 ){",
+											"    const qtde = jsonData.Envelope.Body.obterSituacaoColetaMedicaoResponse.codigo.length;",
+											"    console.log(qtde);",
+											"    tests[\"Temos codigo na resposta: \" + ((qtde > 0))] = true;",
 											"}",
 											""
 										]
@@ -4169,7 +4848,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "47dd9e02-909e-4123-a869-bde87c571dc3",
+												"id": "23d62c76-c0fd-4019-8a97-388734312906",
 												"exec": [
 													""
 												],
@@ -4179,7 +4858,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "08402203-c93b-45f8-b36a-a7d782a186b7",
+												"id": "223b32c0-11fb-46ce-9eec-d48b459e96c3",
 												"exec": [
 													""
 												],
@@ -4300,7 +4979,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "f1d253cd-0aa1-462a-9760-c0471125c8a7",
+												"id": "fb3bb005-83a9-4f33-86d0-8ab26f5f08bf",
 												"exec": [
 													""
 												],
@@ -4310,7 +4989,7 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "9b7d1a90-89e7-484d-a8b2-1eadb592bebc",
+												"id": "c680f3bf-770d-4fc2-a72c-1ad3346aea5e",
 												"exec": [
 													""
 												],
@@ -4431,7 +5110,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b4f97a64-9fb4-4a94-bab6-a74945864a5b",
+										"id": "e68bcf4e-b470-417b-adba-936421f5be60",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -4441,7 +5120,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "008dcb34-1e7c-4567-abaa-25db5eb0ecb4",
+										"id": "6443e771-92ec-41bb-b5fd-85a66f76fa0b",
 										"type": "text/javascript",
 										"exec": [
 											"var jsonData = xml2Json(responseBody.replace(/(\\<\\/?)([a-z0-9]+\\:)(.*?\\>)/gi, \"$1$3\"));",
@@ -4467,7 +5146,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ba608d10-e753-4ecf-b220-e460e8458cc1",
+								"id": "3821a82e-c359-42df-8d5c-ab4ef048330a",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -4477,7 +5156,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "652a5449-241d-4768-8072-b02f988be7c1",
+								"id": "0820b09f-db4e-456a-83b0-50af59f9f17a",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -4519,44 +5198,69 @@
 	],
 	"variable": [
 		{
-			"id": "0ef523af-d139-41d1-bea4-908ceef24daa",
+			"id": "ab88017e-3897-4b1c-b6c4-75f753a3dc30",
 			"key": "host",
 			"value": "https://servicos.ccee.org.br:443"
 		},
 		{
-			"id": "05b6fe74-31c7-4215-a835-6ea460149bd4",
+			"id": "54488da2-31d2-4e80-83dd-3de037db9cb9",
 			"key": "AuthCodigoPerfilAgente",
 			"value": "{{AuthCodigoPerfilAgente}}"
 		},
 		{
-			"id": "55cfa51b-017e-46c4-aba1-7c3c75f68271",
+			"id": "de23f007-399c-448d-88f0-c9e8b497d920",
 			"key": "AuthUsername",
 			"value": "{{AuthUsername}}"
 		},
 		{
-			"id": "f17816b5-e234-4ef2-8694-1b4751782d6c",
+			"id": "e92ee675-7b8c-4379-955a-f1d239983a46",
 			"key": "AuthPassword",
 			"value": "{{AuthPassword}}"
 		},
 		{
-			"id": "00206981-9541-418b-bc84-27dc14c13a56",
+			"id": "58105273-d26e-4d71-a139-1e8030c6b974",
 			"key": "testeCodigoAgente",
 			"value": "{{testeCodigoAgente}}"
 		},
 		{
-			"id": "15cc1b37-70e9-4a43-9528-94f4b55a62cf",
+			"id": "8682c524-3dc5-47f7-91bb-543ffa3f500c",
 			"key": "testeCodigoPerfil",
 			"value": "{[testeCodigoPerfil}}"
 		},
 		{
-			"id": "936c3c0b-e91f-44ac-b408-8c119acb623a",
+			"id": "ae873939-c560-4aef-a96b-da0dd89f6641",
 			"key": "testeCodigoContrato",
 			"value": "{{testeCodigoContrato}}"
 		},
 		{
-			"id": "1f8d3f20-b882-4666-a274-242eba57fcc6",
+			"id": "0a1a50ca-1123-4abb-8b39-5ba3a88944eb",
 			"key": "testeCodigoAtivo",
 			"value": "{{testeCodigoAtivo}}"
+		},
+		{
+			"id": "f1f38ee2-e2c3-4de7-894e-a00a0afe2ce3",
+			"key": "uriParcelaCarga",
+			"value": "/ws/v2/ParcelaCargaBSv2"
+		},
+		{
+			"id": "58c7b6fe-700f-4a81-ae4e-cab9505a3851",
+			"key": "uriSituacaoColetaMedicao",
+			"value": "/ws/v2/SituacaoColetaMedicaoBSv2"
+		},
+		{
+			"id": "b9e787de-53ce-46c4-9084-7bf49266434b",
+			"key": "testeCodigoParcela",
+			"value": "{{testeCodigoParcela}}"
+		},
+		{
+			"id": "7e3b474d-8f97-4e2e-8a7e-b23bd7a4ea78",
+			"key": "uriColetaMedicao",
+			"value": "/ws/v2/ColetaMedicaoBSv2"
+		},
+		{
+			"id": "730a1957-ebf4-4787-9ed0-80196e6cc7db",
+			"key": "uriTopologia",
+			"value": "/ws/v2/TopologiaBSv2"
 		}
 	],
 	"protocolProfileBehavior": {}
