@@ -927,15 +927,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{host}}/h02{{uriParcelaCarga}}",
+											"raw": "{{host}}{{uriParcelaCarga}}",
 											"host": [
-												"{{host}}"
-											],
-											"path": [
-												"h02{{uriParcelaCarga}}"
+												"{{host}}{{uriParcelaCarga}}"
 											]
 										},
-										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarParcelaAtivo](http://www.ccee.org.br/ccee/documentos/CCEE_651802)"
+										"description": "Os campos de entrada e saída do serviço podem ser consultados nos [manuais do usuário](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/plataforma_integracao?_adf.ctrl-state=1bjqag3eqn_5&_afrLoop=928568639890858#!)"
 									},
 									"response": [
 										{
@@ -1026,6 +1023,157 @@
 									"listen": "test",
 									"script": {
 										"id": "f4a1552c-e8aa-43a5-bb3a-1b6cf307bb9f",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Parcelas de usina",
+							"item": [
+								{
+									"name": "Listar parcelas de usina",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "abd677fc-c467-43db-9293-b19c4f9490c6",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"id": "27b123bf-cc62-4456-9226-ebbf2259b1c2",
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarParcelaUsina"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n      <bmv2:listarParcelaUsinaRequest>\n         <bmv2:parcelaAtivo>\n            <bov2:codigo>{{testeCodigoParcela}}</bov2:codigo>\n            <bov2:ativoMedicao>\n               <!--<bov2:numero>{{testeCodigoAtivo}}</bov2:numero>-->\n            </bov2:ativoMedicao>\n            <bov2:vigencia>\n               <bov2:inicio>2017-03-01T00:00:00</bov2:inicio>\n               <bov2:fim>2017-04-01T00:00:00</bov2:fim>\n            </bov2:vigencia>\n         </bmv2:parcelaAtivo>\n         <bmv2:tipoRelacionamento>\n            <bov2:nome>PROPRIETARIO</bov2:nome>\n         </bmv2:tipoRelacionamento>\n      </bmv2:listarParcelaUsinaRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+											"options": {
+												"raw": {}
+											}
+										},
+										"url": {
+											"raw": "{{host}}{{uriParcelaUsina}}",
+											"host": [
+												"{{host}}{{uriParcelaUsina}}"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados nos [Manuais do usuário](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/plataforma_integracao?_adf.ctrl-state=1bjqag3eqn_5&_afrLoop=928568639890858#!)"
+									},
+									"response": [
+										{
+											"name": "Listar parcelas de usina",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarParcelaUsina"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n\t<soapenv:Body>\n      <bmv2:listarParcelaUsinaRequest>\n         <bmv2:parcelaAtivo>\n            <bov2:codigo>{{testeCodigoParcela}}</bov2:codigo>\n            <bov2:ativoMedicao>\n               <!--<bov2:numero>{{testeCodigoAtivo}}</bov2:numero>-->\n            </bov2:ativoMedicao>\n            <bov2:vigencia>\n               <bov2:inicio>2017-03-01T00:00:00</bov2:inicio>\n               <bov2:fim>2017-04-01T00:00:00</bov2:fim>\n            </bov2:vigencia>\n         </bmv2:parcelaAtivo>\n         <bmv2:tipoRelacionamento>\n            <bov2:nome>PROPRIETARIO</bov2:nome>\n         </bmv2:tipoRelacionamento>\n      </bmv2:listarParcelaUsinaRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}{{uriParcelaUsina}}",
+													"host": [
+														"{{host}}{{uriParcelaUsina}}"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "134691697"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 29 Oct 2020 21:41:38 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n   <soapenv:Header>\n      <hdr:messageHeader>\n         <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n         <hdr:versao xsi:nil=\"true\"/>\n      </hdr:messageHeader>\n      <hdr:paginacao>\n         <hdr:numero>1</hdr:numero>\n         <hdr:quantidadeItens>1</hdr:quantidadeItens>\n         <hdr:totalPaginas>1</hdr:totalPaginas>\n         <hdr:quantidadeTotalItens>1</hdr:quantidadeTotalItens>\n      </hdr:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:listarParcelaUsinaResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n         <bmv2:parcelasUsina>\n            <bov2:parcelaUsina>\n               <bov2:codigo>999</bov2:codigo>\n               <bov2:ativoMedicao>\n                  <bov2:codigo>ABCDEF7890</bov2:codigo>\n                  <bov2:nome>NOME DO ATIVO</bov2:nome>\n                  <bov2:nomeReduzido>NOME_REDUZIDO</bov2:nomeReduzido>\n                  <bov2:numero>999</bov2:numero>\n                  <bov2:status>ATIVO</bov2:status>\n               </bov2:ativoMedicao>\n               <bov2:nomeReduzido>NOME_REDUZIDO</bov2:nomeReduzido>\n               <bov2:submercado>\n                  <bov2:nome>Sudeste / Centro-Oeste</bov2:nome>\n               </bov2:submercado>\n               <bov2:vigencia>\n                  <bov2:inicio>2016-01-01T00:00:00-02:00</bov2:inicio>\n               </bov2:vigencia>\n               <bov2:identificacao>\n                  <bov2:numero>12345678000199</bov2:numero>\n                  <bov2:tipo>\n                     <bov2:codigo>CNPJ</bov2:codigo>\n                  </bov2:tipo>\n               </bov2:identificacao>\n               <bov2:status>\n                  <bov2:descricao>Ativo</bov2:descricao>\n               </bov2:status>\n               <bov2:unidadeBase>5</bov2:unidadeBase>\n               <bov2:autorizacaoApos2016>false</bov2:autorizacaoApos2016>\n               <bov2:atoRegulatorio>\n                  <bov2:descricao>Descrição de despacho da ANEEL</bov2:descricao>\n               </bov2:atoRegulatorio>\n               <bov2:capacidadeTotalInstalada>\n                  <bov2:unidadeMedida>MW</bov2:unidadeMedida>\n                  <bov2:valor>987</bov2:valor>\n               </bov2:capacidadeTotalInstalada>\n               <bov2:caracteristica>Operação Normal</bov2:caracteristica>\n               <bov2:ceg>\n                  <bov2:nucleo>UHE.PH.ZZ.012345-0.01</bov2:nucleo>\n               </bov2:ceg>\n               <bov2:fatorCapacidadeMaxima>100</bov2:fatorCapacidadeMaxima>\n               <bov2:fatorPotenciaNova>0</bov2:fatorPotenciaNova>\n               <bov2:fonteEnergia>\n                  <bov2:combustivel>\n                     <bov2:nome>Hidráulica</bov2:nome>\n                  </bov2:combustivel>\n               </bov2:fonteEnergia>\n               <bov2:garantiaFisicaUsina>\n                  <bov2:atoRegulatorio>\n                     <bov2:descricao>ATO 0001/1970</bov2:descricao>\n                  </bov2:atoRegulatorio>\n                  <bov2:pontoDefinicao>Barra de Saída dos Geradores</bov2:pontoDefinicao>\n                  <bov2:quantidade>\n                     <bov2:unidadeMedida>MWMédio</bov2:unidadeMedida>\n                     <bov2:valor>123.5</bov2:valor>\n                  </bov2:quantidade>\n               </bov2:garantiaFisicaUsina>\n               <bov2:indicadorMre>true</bov2:indicadorMre>\n               <bov2:indicadorParticipanteConsorcio>false</bov2:indicadorParticipanteConsorcio>\n               <bov2:indicadorPerdas>true</bov2:indicadorPerdas>\n               <bov2:limiteReservaPotencia>\n                  <bov2:unidadeMedida>MW</bov2:unidadeMedida>\n                  <bov2:valor>0.321354</bov2:valor>\n               </bov2:limiteReservaPotencia>\n               <bov2:modalidadeComercializacao>Outros</bov2:modalidadeComercializacao>\n               <bov2:modeloPreco>7</bov2:modeloPreco>\n               <bov2:montanteUsoDistribuicao>\n                  <bov2:unidadeMedida>MW</bov2:unidadeMedida>\n                  <bov2:valor>789</bov2:valor>\n               </bov2:montanteUsoDistribuicao>\n               <bov2:periodoVersao>\n                  <bov2:inicio>2015-12-05T18:19:31-02:00</bov2:inicio>\n               </bov2:periodoVersao>\n               <bov2:ppi>0.1321</bov2:ppi>\n               <bov2:ppim>0.65346</bov2:ppim>\n               <bov2:taxaEquivalenteTeif>0.45634</bov2:taxaEquivalenteTeif>\n               <bov2:taxaEquivalenteTeip>0.74567</bov2:taxaEquivalenteTeip>\n               <bov2:taxaReferenciaTeif>0.767</bov2:taxaReferenciaTeif>\n               <bov2:taxaReferenciaTeip>0.56767</bov2:taxaReferenciaTeip>\n               <bov2:tipoAutorizacao>\n                  <bov2:nome>Concessão de Serviço Público</bov2:nome>\n               </bov2:tipoAutorizacao>\n               <bov2:tipoDespacho>\n                  <bov2:nome>I - Programada e Despachada</bov2:nome>\n               </bov2:tipoDespacho>\n               <bov2:tipoGeracao>\n                  <bov2:nome>Convencional</bov2:nome>\n               </bov2:tipoGeracao>\n            </bov2:parcelaUsina>\n         </bmv2:parcelasUsina>\n      </bmv2:listarParcelaUsinaResponse>\n   </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nListar parcelas de usinas cadastradas na CCEE.\n\n# Acesso\nO serviço é exposto através de um *web service*.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442{{uriParcelaUsina}}?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br{{uriParcelaUsina}}\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442{{uriParcelaUsina}}?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br{{uriParcelaUsina}}\n",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "da6e80ca-99c4-4b2f-bf64-5c58d3e201fc",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "666e39bb-f7d8-4be2-b3ba-34d65c02aaa4",
 										"type": "text/javascript",
 										"exec": [
 											""
@@ -5198,69 +5346,74 @@
 	],
 	"variable": [
 		{
-			"id": "ab88017e-3897-4b1c-b6c4-75f753a3dc30",
+			"id": "fced4724-c88b-468d-9b52-4f519c02973f",
 			"key": "host",
 			"value": "https://servicos.ccee.org.br:443"
 		},
 		{
-			"id": "54488da2-31d2-4e80-83dd-3de037db9cb9",
+			"id": "ff2c5f84-79be-4594-9bc3-5766c3e447ef",
 			"key": "AuthCodigoPerfilAgente",
 			"value": "{{AuthCodigoPerfilAgente}}"
 		},
 		{
-			"id": "de23f007-399c-448d-88f0-c9e8b497d920",
+			"id": "a919a6f6-f9f7-46d7-9756-e177575c34c4",
 			"key": "AuthUsername",
 			"value": "{{AuthUsername}}"
 		},
 		{
-			"id": "e92ee675-7b8c-4379-955a-f1d239983a46",
+			"id": "94b0c639-e529-4cdf-8a8e-5f3d167da235",
 			"key": "AuthPassword",
 			"value": "{{AuthPassword}}"
 		},
 		{
-			"id": "58105273-d26e-4d71-a139-1e8030c6b974",
+			"id": "7cb6ef24-da6c-4639-b3a9-a5cf45318f57",
 			"key": "testeCodigoAgente",
 			"value": "{{testeCodigoAgente}}"
 		},
 		{
-			"id": "8682c524-3dc5-47f7-91bb-543ffa3f500c",
+			"id": "5cb6d8ff-6f8f-4048-a4dd-b3de1caea25f",
 			"key": "testeCodigoPerfil",
 			"value": "{[testeCodigoPerfil}}"
 		},
 		{
-			"id": "ae873939-c560-4aef-a96b-da0dd89f6641",
+			"id": "60bc1c71-38f3-4915-bb52-0b4a1cf78ac8",
 			"key": "testeCodigoContrato",
 			"value": "{{testeCodigoContrato}}"
 		},
 		{
-			"id": "0a1a50ca-1123-4abb-8b39-5ba3a88944eb",
+			"id": "f201e8a4-4c7c-47e9-8d35-2d4fac0dcf94",
 			"key": "testeCodigoAtivo",
 			"value": "{{testeCodigoAtivo}}"
 		},
 		{
-			"id": "f1f38ee2-e2c3-4de7-894e-a00a0afe2ce3",
+			"id": "c0ad63d1-225c-4c85-a1ab-320c62071d37",
 			"key": "uriParcelaCarga",
 			"value": "/ws/v2/ParcelaCargaBSv2"
 		},
 		{
-			"id": "58c7b6fe-700f-4a81-ae4e-cab9505a3851",
+			"id": "4fbb0ef1-9189-4074-93a1-150c2256df59",
 			"key": "uriSituacaoColetaMedicao",
 			"value": "/ws/v2/SituacaoColetaMedicaoBSv2"
 		},
 		{
-			"id": "b9e787de-53ce-46c4-9084-7bf49266434b",
+			"id": "5fa3ea57-2c5e-4c0f-b85b-b68198cf4fed",
 			"key": "testeCodigoParcela",
 			"value": "{{testeCodigoParcela}}"
 		},
 		{
-			"id": "7e3b474d-8f97-4e2e-8a7e-b23bd7a4ea78",
+			"id": "e15e9c57-7863-46b5-b3cf-44e6b240a935",
 			"key": "uriColetaMedicao",
 			"value": "/ws/v2/ColetaMedicaoBSv2"
 		},
 		{
-			"id": "730a1957-ebf4-4787-9ed0-80196e6cc7db",
+			"id": "78c5c956-7c91-417a-82e6-045709975302",
 			"key": "uriTopologia",
 			"value": "/ws/v2/TopologiaBSv2"
+		},
+		{
+			"id": "4bcb4282-990d-4a8a-b67b-890e6be3e415",
+			"key": "uriParcelaUsina",
+			"value": "/ws/v2/ParcelaUsinaBSv2"
 		}
 	],
 	"protocolProfileBehavior": {}
