@@ -2882,7 +2882,7 @@
 							"description": "# Objetivo\nServiço responsável por montantes de energia relacionados aos contratos de energia elétrica registrados na CCEE, tando do ACL quanto do ACR.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/MontanteEnergiaBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/v2/MontanteEnergiaBSv2 \n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/MontanteEnergiaBSv2?wsdl \n\n*Endpoint*: https://servicos.ccee.org.br:443/ws/v2/MontanteEnergiaBSv2 \n"
 						}
 					],
-					"description": "Parte da operação dos agentes na CCEE consiste no registro e validação de contratos. Os contratos livres são registrados pelos vendedores e os montantes devem ser validados pelos compradores. Os prazos para realização desta operação podem ser consultados no calendário operacional, no site da CCEE.\n\nPara conhecer melhor o fluxo de registro e validação de contratos, acesse o [manual de uso dos serviços\nde contratos livres](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_650000&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)\n\nSaiba mais: [CCEE desenvolve nova tela de registro de contratos](https://www.ccee.org.br/portal/faces/pages_publico/noticias-opiniao/noticias/noticialeitura?contentid=CCEE_649017&_afrLoop=69455571457363&_adf.ctrl-state=yzw1lpu1x_58#!%40%40%3Fcontentid%3DCCEE_649017%26_afrLoop%3D69455571457363%26_adf.ctrl-state%3Dyzw1lpu1x_62)\n\n# Registro de contratos\n\nPara registrar um contrato livre (CCEAL), é necessário conhecer os perfis de agente comprador e vendedor que serão partes do contrato. Para isso, podem ser utilizados os serviços **ListarParticipanteMercado** e **ListarPerfilParticipanteMercado** para identificar os códigos dos perfis. Caso a modulação do contrato seja por carga, é possível identificar a parcela de ativo que será associada ao contrato utilizando os serviços **ListarAtivoMedicao** e **ListarParcelaAtivoMedicao**. \n\nO registro do contrato livre (CCEAL) deve ser feito através do serviço **ImportarArquivo**. Após esta requisição, é possível consultar o resultado da requisição através do serviço **ConsultarResultadoProcessamento**. Posteriormente, o contrato registrado pode ser consultado pelo serviço **ListarContratos**.\n\n# Validar contratos\n\nApós o registro do contrato por parte do vendedor, se faz necessário que a contraparte compradora realize a validação dos montantes registrados para que o contrato seja considerado na contabilização na CCEE. \n\n# Acompanhar situação de contratos registrados\n\nApós o registro do contrato, é possível acompanhar a situação dos contratos e de seus montantes. Para gerenciar a situação dos contratos e montantes, estão disponíveis os serviços ListarContratos e ListarMontanteEnergia. \n\nPara filtrar apenas os contratos com montantes não validados, está disponível o filtro “listarMontantesNaoValidados”, onde pode ser indicado “Sim” para consultar contratos com montantes que estejam com a situação AJUSTADO_NAO_VALIDADO (código 10786) ou INSERIDO_NAO_VALIDADO (código 10783). Caso o filtro “listarMontantesNaoValidados” seja indicado como “Não” ou não seja informado, será filtrado todos os contratos independentemente da situação do montante.\n\n# Consultar contratos\n\nPara consultar detalhes de contratos dos perfis próprios ou representados, é possível utilizar os seguintes serviços disponíveis: **ListarContratos**, **ObterContratos**, **ListarMontanteEnergia** que pode ser utilizado para consultar montantes médios e modulação declarada para contratos que tenham esse tipo de modulação, ListarAtivoAssociadoContrato.\n\nDevem ser utilizados os serviços **ListarContratos**, **ObterContratos**, **ListarMontanteEnergia** para a consulta de contratos regulados, que não tem a restrição de pertencerem a perfis próprios ou de representados, sendo de consulta pública.",
+					"description": "- [Procedimentos de Comercialização - Módulo 3](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/regras?_afrLoop=423617128990820&_adf.ctrl-state=90cgoylw9_1#!%40%40%3F_afrLoop%3D423617128990820%26_adf.ctrl-state%3D90cgoylw9_5)\n- [Regras de Comercialização - Contratos](https://www.ccee.org.br/ccee/documentos/CCEE_660574)\n- [Guia de uso dos serviços\nde contratos livres](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_650000&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)\n- [CCEE desenvolve nova tela de registro de contratos](https://www.ccee.org.br/portal/faces/pages_publico/noticias-opiniao/noticias/noticialeitura?contentid=CCEE_649017&_afrLoop=69455571457363&_adf.ctrl-state=yzw1lpu1x_58#!%40%40%3Fcontentid%3DCCEE_649017%26_afrLoop%3D69455571457363%26_adf.ctrl-state%3Dyzw1lpu1x_62)\n\nParte da operação dos agentes na CCEE consiste no registro e validação de contratos. \n\nNo âmbito operacional, uma das principais atividades da CCEE é contabilizar as operações de compra e venda de energia elétrica, apurando mensalmente as diferenças entre os montantes contratados e os montantes efetivamente gerados ou consumidos pelos agentes de mercado. Para tanto, registra os contratos firmados entre compradores e vendedores, além de medir os montantes físicos de energia movimentados pelos agentes.\n\nOs contratos livres são registrados pelos vendedores e os montantes devem ser validados pelos compradores. Os prazos para realização desta operação podem ser consultados no calendário operacional, no site da CCEE.\n\nNa esfera do mercado regulado, a CCEE é responsável por promover os leilões de compra e venda de energia, assim como gerenciar os contratos firmados nesses leilões.\n\n# Registro de contratos\n\nPara registrar um contrato livre (CCEAL), é necessário conhecer os perfis de agente comprador e vendedor que serão partes do contrato. Para isso, podem ser utilizados os serviços **ListarParticipanteMercado** e **ListarPerfilParticipanteMercado** para identificar os códigos dos perfis. Caso a modulação do contrato seja por carga, é possível identificar a parcela de ativo que será associada ao contrato utilizando os serviços **ListarAtivoMedicao** e **ListarParcelaAtivoMedicao**. \n\nO registro do contrato livre (CCEAL) deve ser feito através do serviço **ImportarArquivo**. Após esta requisição, é possível consultar o resultado da requisição através do serviço **ConsultarResultadoProcessamento**. Posteriormente, o contrato registrado pode ser consultado pelo serviço **ListarContratos**.\n\n# Validar contratos\n\nApós o registro do contrato por parte do vendedor, se faz necessário que a contraparte compradora realize a validação dos montantes registrados para que o contrato seja considerado na contabilização na CCEE. \n\n# Acompanhar situação de contratos registrados\n\nApós o registro do contrato, é possível acompanhar a situação dos contratos e de seus montantes. Para gerenciar a situação dos contratos e montantes, estão disponíveis os serviços ListarContratos e ListarMontanteEnergia. \n\nPara filtrar apenas os contratos com montantes não validados, está disponível o filtro “listarMontantesNaoValidados”, onde pode ser indicado “Sim” para consultar contratos com montantes que estejam com a situação AJUSTADO_NAO_VALIDADO (código 10786) ou INSERIDO_NAO_VALIDADO (código 10783). Caso o filtro “listarMontantesNaoValidados” seja indicado como “Não” ou não seja informado, será filtrado todos os contratos independentemente da situação do montante.\n\n# Consultar contratos\n\nPara consultar detalhes de contratos dos perfis próprios ou representados, é possível utilizar os seguintes serviços disponíveis: **ListarContratos**, **ObterContratos**, **ListarMontanteEnergia** que pode ser utilizado para consultar montantes médios e modulação declarada para contratos que tenham esse tipo de modulação, ListarAtivoAssociadoContrato.\n\nDevem ser utilizados os serviços **ListarContratos**, **ObterContratos**, **ListarMontanteEnergia** para a consulta de contratos regulados, que não tem a restrição de pertencerem a perfis próprios ou de representados, sendo de consulta pública.",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -4360,6 +4360,151 @@
 							]
 						},
 						{
+							"name": "Medidas - 5 minutos",
+							"item": [
+								{
+									"name": "Listar Medidas - 5 Minutos por medidor",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "text/xml; charset=utf-8",
+												"type": "text"
+											},
+											{
+												"key": "SOAPAction",
+												"value": "listarMedidaCincoMinutos",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n   <soapenv:Header>\r\n      <mh:messageHeader>\r\n         <mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n      </mh:messageHeader>\r\n      <oas:Security>\r\n         <oas:UsernameToken>\r\n            <oas:Username>{{AuthUsername}}</oas:Username>\r\n            <oas:Password>{{AuthPassword}}</oas:Password>\r\n         </oas:UsernameToken>\r\n      </oas:Security>\r\n      <mh:paginacao>\r\n         <mh:numero>1</mh:numero>\r\n         <mh:quantidadeItens>3</mh:quantidadeItens>\r\n      </mh:paginacao>\r\n   </soapenv:Header>\t\r\n   <soapenv:Body>\r\n      <bm:listarMedidaCincoMinutosRequest>\r\n         <bm:dataReferencia>2018-02-16T00:00:00</bm:dataReferencia>\r\n         <bm:medidor>\r\n            <bo:codigo>{{testeCodigoMedidor}}</bo:codigo>\r\n         </bm:medidor>\r\n      </bm:listarMedidaCincoMinutosRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/MedidaCincoMinutosBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"MedidaCincoMinutosBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados nos [Manuais do usuário](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/plataforma_integracao?_adf.ctrl-state=90cgoylw9_5)"
+									},
+									"response": [
+										{
+											"name": "Listar Medidas - 5 Minutos",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"value": "listarMedidaCincoMinutos",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\r\n   <soapenv:Header>\r\n      <mh:messageHeader>\r\n         <mh:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mh:codigoPerfilAgente>\r\n      </mh:messageHeader>\r\n      <oas:Security>\r\n         <oas:UsernameToken>\r\n            <oas:Username>{{AuthUsername}}</oas:Username>\r\n            <oas:Password>{{AuthPassword}}</oas:Password>\r\n         </oas:UsernameToken>\r\n      </oas:Security>\r\n      <mh:paginacao>\r\n         <mh:numero>1</mh:numero>\r\n         <mh:quantidadeItens>3</mh:quantidadeItens>\r\n      </mh:paginacao>\r\n   </soapenv:Header>\t\r\n   <soapenv:Body>\r\n      <bm:listarMedidaCincoMinutosRequest>\r\n         <bm:dataReferencia>2018-02-16T00:00:00</bm:dataReferencia>\r\n         <bm:medidor>\r\n            <bo:codigo>{{testeCodigoMedidor}}</bo:codigo>\r\n         </bm:medidor>\r\n      </bm:listarMedidaCincoMinutosRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/MedidaCincoMinutosBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"MedidaCincoMinutosBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d5120514d2e484f4d2e494e544547003131606832a321</MsgId><CorrelId>414d5120514d2e484f4d2e494e544547003131606832a321</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>QM.HOM.INTEGRACAO.02                            </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20210223</PutDate><PutTime>18181218</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "20695905"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 23 Feb 2021 18:18:12 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <hdr:messageHeader>\n         <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n         <hdr:versao xsi:nil=\"true\"/>\n      </hdr:messageHeader>\n      <hdr:paginacao>\n         <hdr:numero>1</hdr:numero>\n         <hdr:quantidadeItens>3</hdr:quantidadeItens>\n         <hdr:totalPaginas>96</hdr:totalPaginas>\n         <hdr:quantidadeTotalItens>288</hdr:quantidadeTotalItens>\n      </hdr:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bm:listarMedidaCincoMinutosResponse>\n         <bm:medidas>\n            <!--Zero or more repetitions:-->\n            <bo:medida>\n               <bo:coletaMedicao>\n                  <bo:tipo>\n                     <bo:nome>Coleta Diária</bo:nome>\n                  </bo:tipo>\n               </bo:coletaMedicao>\n               <bo:data>2018-02-16T00:05:00-03:00</bo:data>\n               <bo:energiaAtiva>\n                  <bo:consumo>\n                     <bo:unidadeMedida>kWh</bo:unidadeMedida>\n                     <bo:valor>1234.98</bo:valor>\n                  </bo:consumo>\n                  <bo:geracao>\n                     <bo:unidadeMedida>kWh</bo:unidadeMedida>\n                     <bo:valor>00.0</bo:valor>\n                  </bo:geracao>\n               </bo:energiaAtiva>\n               <bo:energiaReativa>\n                  <bo:consumo>\n                     <bo:unidadeMedida>kVArh</bo:unidadeMedida>\n                     <bo:valor>0.0</bo:valor>\n                  </bo:consumo>\n                  <bo:geracao>\n                     <bo:unidadeMedida>kVArh</bo:unidadeMedida>\n                     <bo:valor>1982.94</bo:valor>\n                  </bo:geracao>\n               </bo:energiaReativa>\n               <bo:medidor>\n                  <bo:codigo>ABCDEFGH01-01P</bo:codigo>\n               </bo:medidor>\n               <bo:tipoEnergia>\n                  <bo:codigo>L</bo:codigo>\n               </bo:tipoEnergia>\n            </bo:medida>\n            <bo:medida>\n               <bo:coletaMedicao>\n                  <bo:tipo>\n                     <bo:nome>Coleta Diária</bo:nome>\n                  </bo:tipo>\n               </bo:coletaMedicao>\n               <bo:data>2018-02-16T00:10:00-03:00</bo:data>\n               <bo:energiaAtiva>\n                  <bo:consumo>\n                     <bo:unidadeMedida>kWh</bo:unidadeMedida>\n                     <bo:valor>1234.98</bo:valor>\n                  </bo:consumo>\n                  <bo:geracao>\n                     <bo:unidadeMedida>kWh</bo:unidadeMedida>\n                     <bo:valor>00.0</bo:valor>\n                  </bo:geracao>\n               </bo:energiaAtiva>\n               <bo:energiaReativa>\n                  <bo:consumo>\n                     <bo:unidadeMedida>kVArh</bo:unidadeMedida>\n                     <bo:valor>0.0</bo:valor>\n                  </bo:consumo>\n                  <bo:geracao>\n                     <bo:unidadeMedida>kVArh</bo:unidadeMedida>\n                     <bo:valor>1982.94</bo:valor>\n                  </bo:geracao>\n               </bo:energiaReativa>\n               <bo:medidor>\n                  <bo:codigo>ABCDEFGH01-01P</bo:codigo>\n               </bo:medidor>\n               <bo:tipoEnergia>\n                  <bo:codigo>L</bo:codigo>\n               </bo:tipoEnergia>\n            </bo:medida>\n            <bo:medida>\n               <bo:coletaMedicao>\n                  <bo:tipo>\n                     <bo:nome>Coleta Diária</bo:nome>\n                  </bo:tipo>\n               </bo:coletaMedicao>\n               <bo:data>2018-02-16T00:15:00-03:00</bo:data>\n               <bo:energiaAtiva>\n                  <bo:consumo>\n                     <bo:unidadeMedida>kWh</bo:unidadeMedida>\n                     <bo:valor>1234.98</bo:valor>\n                  </bo:consumo>\n                  <bo:geracao>\n                     <bo:unidadeMedida>kWh</bo:unidadeMedida>\n                     <bo:valor>00.0</bo:valor>\n                  </bo:geracao>\n               </bo:energiaAtiva>\n               <bo:energiaReativa>\n                  <bo:consumo>\n                     <bo:unidadeMedida>kVArh</bo:unidadeMedida>\n                     <bo:valor>0.0</bo:valor>\n                  </bo:consumo>\n                  <bo:geracao>\n                     <bo:unidadeMedida>kVArh</bo:unidadeMedida>\n                     <bo:valor>1982.94</bo:valor>\n                  </bo:geracao>\n               </bo:energiaReativa>\n               <bo:medidor>\n                  <bo:codigo>ABCDEFGH01-01P</bo:codigo>\n               </bo:medidor>\n               <bo:tipoEnergia>\n                  <bo:codigo>L</bo:codigo>\n               </bo:tipoEnergia>\n            </bo:medida>\n         </bm:medidas>\t\n      </bm:listarMedidaCincoMinutosResponse>\n   </soapenv:Body>\t\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nEste método disponibiliza os dados de medição integralizados em intervalos de 5 minutos que já foram consistidos pela CCEE, possibilitando a comparação entre os medidores principal, retaguarda e bruta, quando houver, além da antecipação de valores de consumo com objetivo de gerir portfolio e ofertar novos produtos/serviços.\nDeve ser autorizado o acesso para os agentes que estejam cadastrados no SCDE com ao menos um dos parâmetros abaixo do ponto de medição, ou que seja representante de empresa que esteja nesse cadastro:\n\n- Agente de Medição;\n- Agente Conectado;\n- Agente Conectante;\n- Agente Visualizador.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/MedidaCincoMinutosBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br/ws/v2/MedidaCincoMinutosBSv2\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/MedidaCincoMinutosBSv2?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br/ws/v2/MedidaCincoMinutosBSv2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = xml2Json(responseBody.replace(/(\\<\\/?)([a-z0-9]+\\:)(.*?\\>)/gi, \"$1$3\"));",
+											"console.log(jsonData);",
+											"",
+											"const httpResponseCode = responseCode.code;",
+											"if ( httpResponseCode === 200 ){",
+											"    const qtde = jsonData.Envelope.Body.listarMedidaCincoMinutosResponse.medidas.medida.length;",
+											"    console.log(qtde);",
+											"    tests[\"Quantidade de itens: \" + ((qtde > 0))] = true;",
+											"}",
+											""
+										]
+									}
+								}
+							]
+						},
+						{
 							"name": "Coleta Medicao",
 							"item": [
 								{
@@ -4738,7 +4883,7 @@
 							]
 						}
 					],
-					"description": "Os dados de energia elétrica, coletados nos pontos de medição por meio do Sistema de Coleta de Dados de Energia (SCDE), são apurados e tratados para possibilitar a contabilização da energia comercializada pelos agentes.\n\nO cálculo e a consideração das perdas de energia no sistema elétrico e as respectivas alocações aos pontos de medição são tratados no Processo de Medição, composto de duas etapas:\n\n## Medição Física\n\nA etapa de Medição Física trata os dados coletados no SCDE, considerando os valores brutos adquiridos e a localização física dos pontos de medição, que impacta na alocação das perdas de instalação compartilhada.\n\nO módulo de Medição Física é abordado no Caderno 1 das Regras de Comercialização e apresenta:\n\n* a integralização horária dos dados medidos e coletados pelo SCDE;\n* o cálculo das perdas de redes compartilhadas, onde se enquadram, como caso particular as Demais instalações de Transmissão Compartilhadas – DITCs;\n* a determinação dos valores de energia participantes ou isentos do rateio de perdas da Rede Básica; e\n* a aplicação do tratamento da topologia aos pontos de medição para apurar o valor efetivamente consumido ou gerado em cada ponto de medição.\n\n## Medição Contábil\n\nA etapa de Medição Contábil compreende os processos de ajuste e de agrupamento dos dados de medição em informações consolidadas por ativo, tipo carga ou geração e por agente, tratando as especificidades, aplicando as normas legais e regulamentações vigentes.\n\nO módulo de Medição Contábil é abordado no Caderno 2 das Regras de Comercialização e determina:\n\n* a geração por usina, definindo a energia comercial e de teste;\n* o consumo por parcela de carga e de usina;\n* a geração e o consumo total por perfil de agente já ajustados, de modo a incorporar as quantidades correspondentes de perdas da Rede Básica.\n\nAs perdas da Rede Básica são rateadas entre os agentes proprietários de pontos de medição de geração e de consumo. Por meio do rateio das perdas, garante-se que a geração efetiva total do sistema coincida com a carga efetiva total do sistema.\n\nAs perdas elétricas são compartilhadas igualmente entre os pontos de geração e de consumo, sendo metade das perdas abatida do total gerado e a outra metade adicionada ao total consumido.\n\nO ponto virtual onde geração e consumo se igualam é denominado \"Centro de Gravidade\" e é neste ponto que são consideradas todas as compras e vendas de energia na CCEE. A existência deste ponto virtual torna possível a comercialização de energia desconsiderando a localização entre as medições realizadas em diferentes pontos reais do Sistema Interligado Nacional (SIN)."
+					"description": "## Saiba mais\n\n- [Procedimentos de Comercialização - Módulo 2](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/regras?_afrLoop=423617128990820&_adf.ctrl-state=90cgoylw9_1#!%40%40%3F_afrLoop%3D423617128990820%26_adf.ctrl-state%3D90cgoylw9_5)\n- [Regras de Comercialização - Medição Física](https://www.ccee.org.br/ccee/documentos/CCEE_076156)\n- [Regras de Comercialização - Medição Contábil](https://www.ccee.org.br/ccee/documentos/CCEE_653100)\n- [Manual de Orientação para Mapeamento de Pontos de Medição no SCDE](https://www.ccee.org.br/ccee/documentos/CCEE_659347)\n\nMedidores e transformadores de potencial e de corrente são equipamentos associados que constituem o Sistema de Medição para Faturamento (SMF), que são utilizados para medir o fluxo de energia.\n\nOs medidores são conectados ao Sistema de Coleta de Dados de Energia (SCDE), que é o sistema responsável pela coleta diária (realizada das 0h às 10h) e pelo tratamento dos dados de medição.\n\nCom o SCDE, o agente tem praticidade no envio dos dados de medição à CCEE, além de ter disponível o acompanhamento diário dos dados disponibilizados.\n\nOs dados de energia elétrica, coletados nos pontos de medição por meio do Sistema de Coleta de Dados de Energia (SCDE), são apurados e tratados para possibilitar a contabilização da energia comercializada pelos agentes.\n\nO cálculo e a consideração das perdas de energia no sistema elétrico e as respectivas alocações aos pontos de medição são tratados no Processo de Medição, composto de duas etapas:\n\n# Medição Física\n\nA etapa de Medição Física trata os dados coletados no SCDE, considerando os valores brutos adquiridos e a localização física dos pontos de medição, que impacta na alocação das perdas de instalação compartilhada.\n\nO módulo de Medição Física é abordado no Caderno 1 das Regras de Comercialização e apresenta:\n\n* a integralização horária dos dados medidos e coletados pelo SCDE;\n* o cálculo das perdas de redes compartilhadas, onde se enquadram, como caso particular as Demais instalações de Transmissão Compartilhadas – DITCs;\n* a determinação dos valores de energia participantes ou isentos do rateio de perdas da Rede Básica; e\n* a aplicação do tratamento da topologia aos pontos de medição para apurar o valor efetivamente consumido ou gerado em cada ponto de medição.\n\n# Medição Contábil\n\nA etapa de Medição Contábil compreende os processos de ajuste e de agrupamento dos dados de medição em informações consolidadas por ativo, tipo carga ou geração e por agente, tratando as especificidades, aplicando as normas legais e regulamentações vigentes.\n\nO módulo de Medição Contábil é abordado no Caderno 2 das Regras de Comercialização e determina:\n\n* a geração por usina, definindo a energia comercial e de teste;\n* o consumo por parcela de carga e de usina;\n* a geração e o consumo total por perfil de agente já ajustados, de modo a incorporar as quantidades correspondentes de perdas da Rede Básica.\n\nAs perdas da Rede Básica são rateadas entre os agentes proprietários de pontos de medição de geração e de consumo. Por meio do rateio das perdas, garante-se que a geração efetiva total do sistema coincida com a carga efetiva total do sistema.\n\nAs perdas elétricas são compartilhadas igualmente entre os pontos de geração e de consumo, sendo metade das perdas abatida do total gerado e a outra metade adicionada ao total consumido.\n\nO ponto virtual onde geração e consumo se igualam é denominado \"Centro de Gravidade\" e é neste ponto que são consideradas todas as compras e vendas de energia na CCEE. A existência deste ponto virtual torna possível a comercialização de energia desconsiderando a localização entre as medições realizadas em diferentes pontos reais do Sistema Interligado Nacional (SIN)."
 				},
 				{
 					"name": "PLD",
@@ -5383,6 +5528,10 @@
 		{
 			"key": "testeCodigoPontoMedicao",
 			"value": "{{testeCodigoPontoMedicao}}"
+		},
+		{
+			"key": "testeCodigoMedidor",
+			"value": "{{testeCodigoMedidor}}"
 		}
 	]
 }
