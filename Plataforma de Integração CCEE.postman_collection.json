@@ -1691,60 +1691,7 @@
 										},
 										"description": "As seções abaixo contém a lista de campos na entrada e na saída do serviço.\n\n# Entrada\nNome | Descrição | Caminho (xpath)\n--- | --- | ---\nCódigo do processamento | Identifica o código do processamento de um contrato criado ou editado no ambiente da CCEE. | /soapenv:Envelope/soap:Body/bm:obterResultadoProcessamentoRequest/bm:processamento/bo:codigoProcessamento\nTipo de importação | Valor fixo que identifica o tipo de importação realizada. Utilizar \"IMPORTACAO_CONTRATOS\". | /soapenv:Envelope/soapenv:Body/bm:obterResultadoProcessamentoRequest/bm:processamento/bo:tipoProcessamento\n\n# Saída\nNome | Descrição | Caminho (xpath)\n--- | --- | ---\nCódigo do processamento\t | \tIdentificador do processamento que se deseja consultar. É o código de processamento que é informado como resposta do serviço Importar Arquivo.\t | \t/soapenv:Envelope/soapenv:Body/bm:obterResultadoProcessamentoResponse/bm:resultadoProcessamento/bo:codigoProcessamento\nLista de detalhes\t | \tApresenta detalhes sobre a importação, informando o resultado de cada registro enviado no arquivo xml da operação de importação.\t | \t/soapenv:Envelope/soapenv:Body/bm:obterResultadoProcessamentoResponse/bm:resultadoProcessamento/bo:ResultadosProcessamentoImportacaoContrato/bo:detalhe[*]\nStatus\t | \tStatus da importação daquele conjunto de informações. [AVISO] Mensagem de aviso, não impede o processamento da informação. [SUCESSO] Informação processada com sucesso. [ERRO] Mensagem de erro, impede o processamento da informação.\t | \t/soapenv:Envelope/soapenv:Body/bm:obterResultadoProcessamentoResponse/bm:resultadoProcessamento/bo:ResultadosProcessamentoImportacaoContrato/bo:detalhe/bo:status\nDescrição do detalhe\t | \tIndica maiores detalhes sobre o resultado do processamento\t | \t/soapenv:Envelope/soapenv:Body/bm:obterResultadoProcessamentoResponse/bm:resultadoProcessamento/bo:ResultadosProcessamentoImportacaoContrato/bo:detalhe/bo:descricao\nCódigo do contrato\t | \tIdentifica o código do contrato no CliqCCEE\t | \t/soapenv:Envelope/soapenv:Body/bm:obterResultadoProcessamentoResponse/bm:resultadoProcessamento/bo:ResultadosProcessamentoImportacaoContrato/bo:detalhe/bo:contrato/bo:codigo"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								}
 							],
 							"description": "# Objetivo\nServiço responsável pela consulta do código do resultado de um envio de processamento de um determinado contrato no ambiente sistêmico do CliqCCEE.\n\nA resposta do serviço identifica qual o resultado de processamento do código que foi recebido na resposta do serviço **ImportarArquivo** ou através das elas do CLiqCCEE. As funcionalidades envolvidas nesse método visam atender se o arquivo foi importado com sucesso ou não, retornando como resultado à Plataforma de integração, o código do protocolo e uma mensagem de sucesso ou insucesso depois do processamento no CliqCCEE.\n\nDe forma a possibilitar maior flexibilidade ao usuário agente, a CCEE disponibilizará duas formas para obtenção do resultado de consulta: \n\n* Serviço ObterResultadoProcessamento da Plataforma de Integração\n* Resultado na página de consultar contratos do sistema CliqCCEE\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/cntr/ResultadoProcessamentoBSv1?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/cntr/ResultadoProcessamentoBSv1\n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/cntr/ResultadoProcessamentoBSv1?wsdl\n\n*Endpoint*: https://servicos.ccee.org.br:443/ws/cntr/ResultadoProcessamentoBSv1\n",
@@ -1825,60 +1772,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Listar contratos regulados (ACR)",
@@ -1933,60 +1827,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Obter contrato livre (ACL)",
@@ -2041,60 +1882,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - obterContrato](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651338&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Obter contrato regulado (ACR)",
@@ -2149,60 +1937,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - obterContrato](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651338&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								}
 							],
 							"description": "# Objetivo\r\nServiço responsável por listar e obter dados dos contratos de energia elétrica registrados na CCEE, tanto do ambiente de contratação livre (ACL) quanto do ambiente de contratação regulado (ACR)\r\n\r\n# Acesso\r\nO serviço é exposto através de um web service.\r\n\r\n## URL\r\nLista das URLs do serviço para cada ambiente:\r\n\r\n### Piloto\r\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/ContratoBSv2?wsdl\r\n\r\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/v2/ContratoBSv2\r\n\r\n### Produção\r\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/ContratoBSv2?wsdl\r\n\r\n*Endpoint*: https://servicos.ccee.org.br:443/ws/v2/ContratoBSv2\r\n",
@@ -2283,60 +2018,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Listar monantes modularizados",
@@ -2391,60 +2073,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Listar montantes de energia anual",
@@ -2499,60 +2128,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Listar montantes de energia mensal",
@@ -2607,60 +2183,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Listar montantes - ano contratual",
@@ -2715,60 +2238,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								},
 								{
 									"name": "Listar montantes - obrigação de entrega",
@@ -2823,60 +2293,7 @@
 										},
 										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarContratos](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_651337&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
 									},
-									"response": [
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
-										}
-									]
+									"response": []
 								}
 							],
 							"description": "# Objetivo\nServiço responsável por montantes de energia relacionados aos contratos de energia elétrica registrados na CCEE, tando do ACL quanto do ACR.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/MontanteEnergiaBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/v2/MontanteEnergiaBSv2 \n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/MontanteEnergiaBSv2?wsdl \n\n*Endpoint*: https://servicos.ccee.org.br:443/ws/v2/MontanteEnergiaBSv2 \n"
@@ -3761,6 +3178,58 @@
 									},
 									"response": [
 										{
+											"name": "Listar Ativos de Medição",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "text/xml; charset=utf-8"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarAtivoMedicao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
+												},
+												"url": {
+													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
+													"host": [
+														"{{URL}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"AtivoMedicaoBSv2"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "X-Backside-Transport",
+													"value": "FAIL FAIL"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
+										},
+										{
 											"name": "Acrônimo com dimensão horária - CQ_EFE_CE e,j",
 											"originalRequest": {
 												"method": "POST",
@@ -3829,58 +3298,6 @@
 											],
 											"cookie": [],
 											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\">\n    <soapenv:Header>\n        <mh:messageHeader>\n            <mh:transactionId>123412378-1234-1234-1234-1234123789012</mh:transactionId>\n            <mh:versao xsi:nil=\"true\"/>\n        </mh:messageHeader>\n        <mh:paginacao>\n            <mh:numero>1</mh:numero>\n            <mh:quantidadeItens>2</mh:quantidadeItens>\n            <mh:totalPaginas>1</mh:totalPaginas>\n            <mh:quantidadeTotalItens>1</mh:quantidadeTotalItens>\n        </mh:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarResultadoResponse xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n            <bmv2:resultados>\n                <bov2:resultado>\n                    <bov2:acronimos>\n                        <bov2:acronimo>\n                            <bov2:id>138</bov2:id>\n                            <bov2:nome>CQ_EFE_CE e,j</bov2:nome>\n                        </bov2:acronimo>\n                    </bov2:acronimos>\n                    <bov2:nomes>\n                        <bov2:nome>'QT_CQ_EFE_CE', 'CODIGO_AGENTE_COMPRADOR', 'CODIGO_AGENTE_VENDEDOR', 'CODIGO_CNPJ_COMPRADOR', 'CODIGO_CNPJ_VENDEDOR', 'SIGLA_AGENTE_COMPRADOR', 'SIGLA_AGENTE_VENDEDOR', 'CODIGO_CEG', 'DATA_FIM_VIGENCIA_ATIV', 'DATA_INICIO_VIGENCIA_ATIV', 'SIGLA_ATIVO', 'CODIGO_ATIVO', 'CODIGO_CONTRATO', 'DATA_INICIO_SUPRIMENTO_CONTRATO', 'DATA_FIM_VIGENCIA_CNTR', 'DATA_FIM_SUPRIMENTO_CONTRATO', 'DATA_INICIO_VIGENCIA_CNTR', 'TIPO_CONTRATO', 'CODIGO_EVENTO', 'MES_ANO_EVENTO', 'NOME_EVENTO', 'HORA', 'NOME_LEILAO', 'CODIGO_LEILAO', 'CODIGO_CNPJ_ATIVO', 'SIGLA_PARCELA_ATIVO', 'CODIGO_PARCELA_ATIVO', 'CODIGO_PERFIL_AGENTE_VENDEDOR', 'CODIGO_PERFIL_AGENTE_COMPRADOR', 'SIGLA_PERFIL_AGENTE_VENDEDOR', 'SIGLA_PERFIL_AGENTE_COMPRADOR', 'NOME_PRODUTO', 'CODIGO_PROD', 'SEMANA', 'CODIGO_SEMANA', 'CODIGO_SUBMERCADO_ORIGEM', 'CODIGO_SUBMERCADO_DESTINO', 'SUBMERCADO', 'SUBMERCADO_ORIGEM', 'TIPO_PATAMAR'</bov2:nome>\n                    </bov2:nomes>\n                    <bov2:valores>\n                        <bov2:valor>\n                            <bov2:Item>'','30','123','12345678000199','98765432000101','PERFIL','MINHASIGLA','UHE.YYZ','','01/07/2018 00:00:00','PERFIL','897','987','31/12/2019','31/12/2019 23:00:00','01/05/2017','01/02/2019 00:00:00','CCEAR-Q','201903098000','201903','2019_03 - MEM&#211;RIA C&#193;LCULO GARANTIA FINANCEIRA','25/03/2019 16:00:00 -03:00','1&#186; Leil&#227;o de Energia Existente','986','98765432000101','PERFIL','897','123','30','MINHASIGLA','PERFIL','2017-6','419','5&#170; Semana','2019035','-98','1','&#160;','SUDESTE','1'</bov2:Item>\n                            <bov2:Item>'','30','123','12345678000199','98765432000101','PERFIL','MINHASIGLA','UHE.YYZ','','01/07/2018 00:00:00','PERFIL','897','987','31/12/2019','31/12/2019 23:00:00','01/05/2017','01/02/2019 00:00:00','CCEAR-Q','201903098000','201903','2019_03 - MEM&#211;RIA C&#193;LCULO GARANTIA FINANCEIRA','27/03/2019 16:00:00 -03:00','1&#186; Leil&#227;o de Energia Existente','986','98765432000101','PERFIL','897','123','30','MINHASIGLA','PERFIL','2017-6','419','5&#170; Semana','2019035','-98','1','&#160;','SUDESTE','1'</bov2:Item>\n                        </bov2:valor>\n                    </bov2:valores>\n                </bov2:resultado>\n            </bmv2:resultados>\n        </bmv2:listarResultadoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
-										},
-										{
-											"name": "Listar Ativos de Medição",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"key": "Content-Type",
-														"type": "text",
-														"value": "text/xml; charset=utf-8"
-													},
-													{
-														"key": "SOAPAction",
-														"type": "text",
-														"value": "listarAtivoMedicao"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "<soapenv:Envelope\n\txmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n\txmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n\txmlns:v2=\"http://xmlns.energia.org.br/MH/v2\"\n\txmlns:v21=\"http://xmlns.energia.org.br/BM/v2\"\n\txmlns:v22=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<v2:messageHeader>\n\t\t\t<v2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</v2:codigoPerfilAgente>\n\t\t\t<v2:versao>2.1</v2:versao>\n\t\t</v2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<v2:paginacao>\n\t\t\t<v2:numero>1</v2:numero>\n\t\t\t<v2:quantidadeItens>100</v2:quantidadeItens>\n\t\t</v2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<v21:listarAtivoMedicaoRequest>\n\t\t\t<v21:ativoMedicao>\n\t\t\t\t<v22:nome>NOME COMPLETO</v22:nome>\n\t\t\t\t<v22:nomeReduzido>NOME</v22:nomeReduzido>\n\t\t\t\t<v22:tipo>\n\t\t\t\t\t<v22:descricao>CARGA</v22:descricao>\n\t\t\t\t</v22:tipo>\n\t\t\t\t<v22:vigencia>\n\t\t\t\t\t<v22:inicio>2019-11-01T00:00:00</v22:inicio>\n\t\t\t\t</v22:vigencia>\n\t\t\t\t<v22:parcelasAtivo>\n\t\t\t\t\t<v22:parcelaAtivo>\n\t\t\t\t\t\t<v22:participanteMercado>\n\t\t\t\t\t\t\t<v22:codigo>26</v22:codigo>\n\t\t\t\t\t\t</v22:participanteMercado>\n\t\t\t\t\t</v22:parcelaAtivo>\n\t\t\t\t</v22:parcelasAtivo>\n\t\t\t</v21:ativoMedicao>\n\t\t</v21:listarAtivoMedicaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
-												},
-												"url": {
-													"raw": "{{URL}}/ws/v2/AtivoMedicaoBSv2",
-													"host": [
-														"{{URL}}"
-													],
-													"path": [
-														"ws",
-														"v2",
-														"AtivoMedicaoBSv2"
-													]
-												}
-											},
-											"status": "Internal Server Error",
-											"code": 500,
-											"_postman_previewlanguage": "xml",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/xml"
-												},
-												{
-													"key": "X-Backside-Transport",
-													"value": "FAIL FAIL"
-												},
-												{
-													"key": "Connection",
-													"value": "close"
-												}
-											],
-											"cookie": [],
-											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<NS1:Envelope xmlns:NS1=\"http://schemas.xmlsoap.org/soap/envelope/\">\n    <NS1:Body>\n        <NS1:Fault>\n            <faultcode>Server.4001</faultcode>\n            <faultstring>Erro retornado pelo provedor da informa&#231;&#227;o</faultstring>\n            <faultactor>4</faultactor>\n            <detail>\n                <fltv2:unexpectedTechnicalFault xmlns:fltv2=\"http://xmlns.energia.org.br/FM/v2\">\n                    <fltv2:errorCode>4001</fltv2:errorCode>\n                    <fltv2:message>Utilize a pesquisa por nome reduzido ou por nome completo. Verifique os par&#226;metros informados.</fltv2:message>\n                    <fltv2:uri>/ws/v2/AtivoMedicaoBSv2</fltv2:uri>\n                    <fltv2:transactionId>a860bc34-7491-46c8-9b98-30fb6acff125</fltv2:transactionId>\n                </fltv2:unexpectedTechnicalFault>\n            </detail>\n        </NS1:Fault>\n    </NS1:Body>\n</NS1:Envelope>"
 										}
 									]
 								}
@@ -4048,6 +3465,136 @@
 							"item": [
 								{
 									"name": "Listar resultados de relatórios",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarResultadoRelatorio"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:listarResultadoRelatorioRequest>\n         <bmv2:eventoContabil>\n            <bov2:codigo>202101001000</bov2:codigo>\n         </bmv2:eventoContabil>\n         <bmv2:quadro>\n            <bov2:id>54</bov2:id>\n            <bov2:parametros>\n               <bov2:parametro>\n                  <bov2:nome>CODIGO_AGENTE</bov2:nome>\n                  <bov2:valor>{{testeCodigoAgente}}</bov2:valor>\n               </bov2:parametro>\n            </bov2:parametros>\n         </bmv2:quadro>\n         <bmv2:relatorio>\n            <bov2:id>14</bov2:id>\n         </bmv2:relatorio>\n      </bmv2:listarResultadoRelatorioRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+											"options": {
+												"raw": {
+													"language": "xml"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/ResultadoRelatorioBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"ResultadoRelatorioBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarResultadoRelatorio](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_655694&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Listar resultados de relatórios",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "text/xml; charset=utf-8"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarResultadoRelatorio"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>2</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:listarResultadoRelatorioRequest>\n         <bmv2:eventoContabil>\n            <bov2:codigo>202005098000</bov2:codigo>\n         </bmv2:eventoContabil>\n         <bmv2:quadro>\n            <bov2:id>31</bov2:id>\n            <bov2:parametros>\n               <bov2:parametro>\n                  <bov2:nome>CODIGO_AGENTE</bov2:nome>\n                  <bov2:valor>{{testeCodigoAgente}}</bov2:valor>\n               </bov2:parametro>\n            </bov2:parametros>\n         </bmv2:quadro>\n         <bmv2:relatorio>\n            <bov2:id>8</bov2:id>\n         </bmv2:relatorio>\n      </bmv2:listarResultadoRelatorioRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/ResultadoRelatorioBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"ResultadoRelatorioBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "6ac8306b5f4d45b918820c35"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 31 Aug 2020 18:47:24 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n        <hdr:paginacao>\n            <hdr:numero>1</hdr:numero>\n            <hdr:quantidadeItens>2</hdr:quantidadeItens>\n            <hdr:totalPaginas>100</hdr:totalPaginas>\n            <hdr:quantidadeTotalItens>199</hdr:quantidadeTotalItens>\n        </hdr:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarResultadoRelatorioResponse xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n            <bmv2:resultados>\n                <bov2:resultadoRelatorio>\n                    <bov2:cabecalho>'EVENTO','AGENTE','CNPJ DO AGENTE','PERFIL DE AGENTE','NOME DO AJUSTE','M&#202;S/ANO DO AJUSTE','ATUALIZA&#199;&#195;O MONET&#193;RIA DE PENALIDADE R$','AJUSTES (R$)','RATEIO DESL. SEM SUCESS&#195;O (R$)','TOTAL (R$)'</bov2:cabecalho>\n                    <bov2:relatorio>\n                        <bov2:id>8</bov2:id>\n                        <bov2:nome>SUM001</bov2:nome>\n                        <bov2:quadros>\n                            <bov2:quadro>\n                                <bov2:id>31</bov2:id>\n                                <bov2:nome>Q3</bov2:nome>\n                            </bov2:quadro>\n                        </bov2:quadros>\n                    </bov2:relatorio>\n                    <bov2:valores>\n                        <bov2:valor>'2020_05 - MEM&#211;RIA C&#193;LCULO GARANTIA FINANCEIRA','MINHASIGLA','12345678000199','MINHASIGLA','123 - Mai20','2020/05','','-123.31','0.00','-123.31'</bov2:valor>\n                        <bov2:valor>'2020_05 - MEM&#211;RIA C&#193;LCULO GARANTIA FINANCEIRA','MINHASIGLA','12345678000199','MINHASIGLA','123 - Mai20','2020/05','','-123.18','0.00','-123.18'</bov2:valor>\n                    </bov2:valores>\n                </bov2:resultadoRelatorio>\n            </bmv2:resultados>\n        </bmv2:listarResultadoRelatorioResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								},
+								{
+									"name": "Listar resultados de relatórios Copy",
 									"event": [
 										{
 											"listen": "prerequest",
@@ -4884,6 +4431,912 @@
 						}
 					],
 					"description": "## Saiba mais\n\n- [Procedimentos de Comercialização - Módulo 2](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/regras?_afrLoop=423617128990820&_adf.ctrl-state=90cgoylw9_1#!%40%40%3F_afrLoop%3D423617128990820%26_adf.ctrl-state%3D90cgoylw9_5)\n- [Regras de Comercialização - Medição Física](https://www.ccee.org.br/ccee/documentos/CCEE_076156)\n- [Regras de Comercialização - Medição Contábil](https://www.ccee.org.br/ccee/documentos/CCEE_653100)\n- [Manual de Orientação para Mapeamento de Pontos de Medição no SCDE](https://www.ccee.org.br/ccee/documentos/CCEE_659347)\n\nMedidores e transformadores de potencial e de corrente são equipamentos associados que constituem o Sistema de Medição para Faturamento (SMF), que são utilizados para medir o fluxo de energia.\n\nOs medidores são conectados ao Sistema de Coleta de Dados de Energia (SCDE), que é o sistema responsável pela coleta diária (realizada das 0h às 10h) e pelo tratamento dos dados de medição.\n\nCom o SCDE, o agente tem praticidade no envio dos dados de medição à CCEE, além de ter disponível o acompanhamento diário dos dados disponibilizados.\n\nOs dados de energia elétrica, coletados nos pontos de medição por meio do Sistema de Coleta de Dados de Energia (SCDE), são apurados e tratados para possibilitar a contabilização da energia comercializada pelos agentes.\n\nO cálculo e a consideração das perdas de energia no sistema elétrico e as respectivas alocações aos pontos de medição são tratados no Processo de Medição, composto de duas etapas:\n\n# Medição Física\n\nA etapa de Medição Física trata os dados coletados no SCDE, considerando os valores brutos adquiridos e a localização física dos pontos de medição, que impacta na alocação das perdas de instalação compartilhada.\n\nO módulo de Medição Física é abordado no Caderno 1 das Regras de Comercialização e apresenta:\n\n* a integralização horária dos dados medidos e coletados pelo SCDE;\n* o cálculo das perdas de redes compartilhadas, onde se enquadram, como caso particular as Demais instalações de Transmissão Compartilhadas – DITCs;\n* a determinação dos valores de energia participantes ou isentos do rateio de perdas da Rede Básica; e\n* a aplicação do tratamento da topologia aos pontos de medição para apurar o valor efetivamente consumido ou gerado em cada ponto de medição.\n\n# Medição Contábil\n\nA etapa de Medição Contábil compreende os processos de ajuste e de agrupamento dos dados de medição em informações consolidadas por ativo, tipo carga ou geração e por agente, tratando as especificidades, aplicando as normas legais e regulamentações vigentes.\n\nO módulo de Medição Contábil é abordado no Caderno 2 das Regras de Comercialização e determina:\n\n* a geração por usina, definindo a energia comercial e de teste;\n* o consumo por parcela de carga e de usina;\n* a geração e o consumo total por perfil de agente já ajustados, de modo a incorporar as quantidades correspondentes de perdas da Rede Básica.\n\nAs perdas da Rede Básica são rateadas entre os agentes proprietários de pontos de medição de geração e de consumo. Por meio do rateio das perdas, garante-se que a geração efetiva total do sistema coincida com a carga efetiva total do sistema.\n\nAs perdas elétricas são compartilhadas igualmente entre os pontos de geração e de consumo, sendo metade das perdas abatida do total gerado e a outra metade adicionada ao total consumido.\n\nO ponto virtual onde geração e consumo se igualam é denominado \"Centro de Gravidade\" e é neste ponto que são consideradas todas as compras e vendas de energia na CCEE. A existência deste ponto virtual torna possível a comercialização de energia desconsiderando a localização entre as medições realizadas em diferentes pontos reais do Sistema Interligado Nacional (SIN)."
+				},
+				{
+					"name": "Notificação de eventos (webhook)",
+					"item": [
+						{
+							"name": "Recebimento das notificações",
+							"item": [
+								{
+									"name": "Receber notificações da CCEE",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"eventoNotificacao\": \"CONTRATO.REGISTRADO\",\r\n    \"metadados\": [\r\n        {\r\n            \"nome\": \"ID_CONTRATO\",\r\n            \"valor\": \"1234\"\r\n        },\r\n        {\r\n            \"nome\": \"DATA_ORIGEM_EVENTO\",\r\n            \"valor\": \"2021-05-11T05:30:00.000Z\"\r\n        },\r\n        {\r\n            \"nome\": \"MES_REFERENCIA\",\r\n            \"valor\": \"null\"\r\n        },\r\n        {\r\n            \"nome\": \"AMBIENTE_CONTRATACAO\",\r\n            \"valor\": \"ACL\"\r\n        }\r\n    ],\r\n    \"transactionId\": \"12345678-1234-1234-1234-123465789012\"\r\n}"
+										},
+										"url": {
+											"raw": "https://url.destino.agente/qualquer-coisa",
+											"protocol": "https",
+											"host": [
+												"url",
+												"destino",
+												"agente"
+											],
+											"path": [
+												"qualquer-coisa"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Receber notificações da CCEE",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"eventoNotificacao\": \"CONTRATO.REGISTRADO\",\r\n    \"metadados\": [\r\n        {\r\n            \"nome\": \"ID_CONTRATO\",\r\n            \"valor\": \"1234\"\r\n        },\r\n        {\r\n            \"nome\": \"DATA_ORIGEM_EVENTO\",\r\n            \"valor\": \"2021-05-11T05:30:00.000Z\"\r\n        },\r\n        {\r\n            \"nome\": \"MES_REFERENCIA\",\r\n            \"valor\": \"null\"\r\n        },\r\n        {\r\n            \"nome\": \"AMBIENTE_CONTRATACAO\",\r\n            \"valor\": \"ACL\"\r\n        }\r\n    ],\r\n    \"transactionId\": \"12345678-1234-1234-1234-123465789012\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "https://url.destino.agente/qualquer-coisa",
+													"protocol": "https",
+													"host": [
+														"url",
+														"destino",
+														"agente"
+													],
+													"path": [
+														"qualquer-coisa"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"description": "",
+													"type": "text"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nPara receber as notificações de eventos de negócio geradas pela CCEE, o participante de mercado deve, antes, disponibilizar uma interface em Rest API, considerando que:\n\n-  Interface exposta em HTTP/HTTPS\n- Ao receber a notificação, deve-se retornar o HTTP response code = 201 para a CCEE\n- Caso outro código seja retornado, a CCEE irá reenviar a notificação a cada 5 minutos, por um prazo de 24 horas ou até que a interface do participante de mercado retorne o código 201 (o que acontece primeiro)\n\nO exemplo abaixo pode ser utilizado como referência.",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Eventos para notificação",
+							"item": [
+								{
+									"name": "Listar eventos disponíveis para notificação",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarEventoNotificacao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n    <soapenv:Header>\n        <mhv2:messageHeader>\n            <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n        </mhv2:messageHeader>\n        <oas:Security>\n            <oas:UsernameToken>\n                <oas:Username>{{AuthUsername}}</oas:Username>\n                <oas:Password>{{AuthPassword}}</oas:Password>\n            </oas:UsernameToken>\n        </oas:Security>\n        <mhv2:paginacao>\n            <mhv2:numero>1</mhv2:numero>\n            <mhv2:quantidadeItens>50</mhv2:quantidadeItens>\n        </mhv2:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarEventoNotificacaoRequest>\n            <!--Optional:-->\n            <bmv2:entidade>\n                <bov2:nome></bov2:nome>\n            </bmv2:entidade>\n            <!--Optional:-->\n            <bmv2:evento>\n                <bov2:nome></bov2:nome>\n            </bmv2:evento>\n        </bmv2:listarEventoNotificacaoRequest>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/EventoNotificacaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"EventoNotificacaoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarDivulgacaoEventoContabil](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654100&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Listar eventos disponíveis para notificação",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarEventoNotificacao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n    <soapenv:Header>\n        <mhv2:messageHeader>\n            <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n        </mhv2:messageHeader>\n        <oas:Security>\n            <oas:UsernameToken>\n                <oas:Username>{{AuthUsername}}</oas:Username>\n                <oas:Password>{{AuthPassword}}</oas:Password>\n            </oas:UsernameToken>\n        </oas:Security>\n        <mhv2:paginacao>\n            <mhv2:numero>1</mhv2:numero>\n            <mhv2:quantidadeItens>50</mhv2:quantidadeItens>\n        </mhv2:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarEventoNotificacaoRequest>\n            <!--Optional:-->\n            <bmv2:entidade>\n                <bov2:nome>CONTRATO</bov2:nome>\n            </bmv2:entidade>\n            <!--Optional:-->\n            <bmv2:evento>\n                <bov2:nome></bov2:nome>\n            </bmv2:evento>\n        </bmv2:listarEventoNotificacaoRequest>\n    </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/EventoNotificacaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"EventoNotificacaoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d5120514d2e484f4d2e494e54454768f8516021a00f28</MsgId><CorrelId>414d5120514d2e484f4d2e494e54454768f8516021a00f28</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>QM.HOM.INTEGRACAO.02                            </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20210324</PutDate><PutTime>20240574</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "250796643"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 24 Mar 2021 20:24:07 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>81155853-0a65-4770-aabc-d3b9d827745a</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n        <hdr:paginacao>\n            <hdr:numero>1</hdr:numero>\n            <hdr:quantidadeItens>5</hdr:quantidadeItens>\n            <hdr:totalPaginas>1</hdr:totalPaginas>\n            <hdr:quantidadeTotalItens>5</hdr:quantidadeTotalItens>\n        </hdr:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarEventoNotificacaoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:eventosNotificacao>\n                <bov2:eventoNotificacao>\n                    <bov2:codigo>CONTRATO.ATUALIZADO</bov2:codigo>\n                    <bov2:entidade>\n                        <bov2:nome>CONTRATO</bov2:nome>\n                    </bov2:entidade>\n                    <bov2:evento>\n                        <bov2:nome>ATUALIZADO</bov2:nome>\n                    </bov2:evento>\n                </bov2:eventoNotificacao>\n                <bov2:eventoNotificacao>\n                    <bov2:codigo>CONTRATO.CANCELADO</bov2:codigo>\n                    <bov2:entidade>\n                        <bov2:nome>CONTRATO</bov2:nome>\n                    </bov2:entidade>\n                    <bov2:evento>\n                        <bov2:nome>CANCELADO</bov2:nome>\n                    </bov2:evento>\n                </bov2:eventoNotificacao>\n                <bov2:eventoNotificacao>\n                    <bov2:codigo>CONTRATO.CONCLUIDO</bov2:codigo>\n                    <bov2:entidade>\n                        <bov2:nome>CONTRATO</bov2:nome>\n                    </bov2:entidade>\n                    <bov2:evento>\n                        <bov2:nome>CONCLUIDO</bov2:nome>\n                    </bov2:evento>\n                </bov2:eventoNotificacao>\n                <bov2:eventoNotificacao>\n                    <bov2:codigo>CONTRATO.FINALIZADO</bov2:codigo>\n                    <bov2:entidade>\n                        <bov2:nome>CONTRATO</bov2:nome>\n                    </bov2:entidade>\n                    <bov2:evento>\n                        <bov2:nome>FINALIZADO</bov2:nome>\n                    </bov2:evento>\n                </bov2:eventoNotificacao>\n                <bov2:eventoNotificacao>\n                    <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n                    <bov2:entidade>\n                        <bov2:nome>CONTRATO</bov2:nome>\n                    </bov2:entidade>\n                    <bov2:evento>\n                        <bov2:nome>REGISTRADO</bov2:nome>\n                    </bov2:evento>\n                </bov2:eventoNotificacao>\n            </bmv2:eventosNotificacao>\n        </bmv2:listarEventoNotificacaoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nEste serviço tem como listar os eventos de negócio disponíveis para notificação a ser enviada para os agentes participantes de mercado através do mecanismo de webhook da Plataforma de Integração.\n\nOs valores retornados nesse serviço serão utilizados para o cadastro das preferências de notificação que o agente deseja receber.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/EventoNotificacaoBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/v2/EventoNotificacaoBSv2 \n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/EventoNotificacaoBSv2?wsdl \n\n*Endpoint*: https://servicos.ccee.org.br:443/ws/v2/EventoNotificacaoBSv2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Preferências de notificação",
+							"item": [
+								{
+									"name": "Incluir preferência de notificação",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "incluirPreferenciaNotificacao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:incluirPreferenciaNotificacaoRequest>\n         <bmv2:preferenciaNotificacao>\n            <bov2:enderecoDestino>https://www.servidor-agente.com.br/uri/completa</bov2:enderecoDestino>\n            <bov2:eventoNotificacao>\n               <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n            </bov2:eventoNotificacao>\n         </bmv2:preferenciaNotificacao>\n      </bmv2:incluirPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"PreferenciaNotificacaoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarDivulgacaoEventoContabil](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654100&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Incluir preferência de notificação",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "incluirPreferenciaNotificacao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:incluirPreferenciaNotificacaoRequest>\n         <bmv2:preferenciaNotificacao>\n            <bov2:enderecoDestino>https://www.servidor-agente.com.br/uri/completa</bov2:enderecoDestino>\n            <bov2:eventoNotificacao>\n               <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n            </bov2:eventoNotificacao>\n         </bmv2:preferenciaNotificacao>\n      </bmv2:incluirPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"PreferenciaNotificacaoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d5120514d2e484f4d2e494e54454768f851606a3b9d28</MsgId><CorrelId>414d5120514d2e484f4d2e494e54454768f851606a3b9d28</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>QM.HOM.INTEGRACAO.02                            </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20210325</PutDate><PutTime>14012959</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "256634051"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 25 Mar 2021 14:01:31 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:incluirPreferenciaNotificacaoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:mensagem>\n                <bov2:descricao>Prefer&#234;ncia de notifica&#231;&#227;o inclu&#237;da com sucesso</bov2:descricao>\n            </bmv2:mensagem>\n        </bmv2:incluirPreferenciaNotificacaoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								},
+								{
+									"name": "Atualizar preferência de notificação",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "atualizarPreferenciaNotificacao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:atualizarPreferenciaNotificacaoRequest>\n         <bmv2:preferenciaNotificacao>\n            <bov2:enderecoDestino>https://www.servidor-agente.com.br/uri/completa</bov2:enderecoDestino>\n            <bov2:eventoNotificacao>\n               <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n            </bov2:eventoNotificacao>\n         </bmv2:preferenciaNotificacao>\n      </bmv2:atualizarPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"PreferenciaNotificacaoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarDivulgacaoEventoContabil](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654100&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Atualizar preferência de notificação",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "atualizarPreferenciaNotificacao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:atualizarPreferenciaNotificacaoRequest>\n         <bmv2:preferenciaNotificacao>\n            <bov2:enderecoDestino>https://www.servidor-agente.com.br/uri/completa</bov2:enderecoDestino>\n            <bov2:eventoNotificacao>\n               <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n            </bov2:eventoNotificacao>\n         </bmv2:preferenciaNotificacao>\n      </bmv2:atualizarPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"PreferenciaNotificacaoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d5120514d2e484f4d2e494e54454768f8516060db9c28</MsgId><CorrelId>414d5120514d2e484f4d2e494e54454768f8516060db9c28</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>QM.HOM.INTEGRACAO.02                            </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20210325</PutDate><PutTime>13585153</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "256630851"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 25 Mar 2021 13:58:54 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:atualizarPreferenciaNotificacaoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:mensagem>\n                <bov2:descricao>Prefer&#234;ncia de notifica&#231;&#227;o atualizada com sucesso</bov2:descricao>\n            </bmv2:mensagem>\n        </bmv2:atualizarPreferenciaNotificacaoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								},
+								{
+									"name": "Excluir preferência de notificação",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "excluirPreferenciaNotificacao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:excluirPreferenciaNotificacaoRequest>\n         <bmv2:preferenciaNotificacao>\n            <bov2:eventoNotificacao>\n               <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n            </bov2:eventoNotificacao>\n         </bmv2:preferenciaNotificacao>\n      </bmv2:excluirPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"PreferenciaNotificacaoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarDivulgacaoEventoContabil](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654100&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Excluir preferência de notificação",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "excluirPreferenciaNotificacao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:excluirPreferenciaNotificacaoRequest>\n         <bmv2:preferenciaNotificacao>\n            <bov2:eventoNotificacao>\n               <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n            </bov2:eventoNotificacao>\n         </bmv2:preferenciaNotificacao>\n      </bmv2:excluirPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"PreferenciaNotificacaoBSv2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "X-Backside-Transport",
+													"value": "OK OK"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "MQMD",
+													"value": "<MQMD><StrucId>MD  </StrucId><Version>1</Version><Report>0</Report><MsgType>2</MsgType><Expiry>100</Expiry><Feedback>0</Feedback><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Format>        </Format><Priority>0</Priority><Persistence>0</Persistence><MsgId>414d5120514d2e484f4d2e494e54454768f8516003519d28</MsgId><CorrelId>414d5120514d2e484f4d2e494e54454768f8516003519d28</CorrelId><BackoutCount>0</BackoutCount><ReplyToQ>BSV2.OUT                                        </ReplyToQ><ReplyToQMgr>QM.HOM.INTEGRACAO.02                            </ReplyToQMgr><UserIdentifier>mqm         </UserIdentifier><AccountingToken>0130000000000000000000000000000000000000000000000000000000000006</AccountingToken><ApplIdentityData>                                </ApplIdentityData><PutApplType>6</PutApplType><PutApplName>WebSphere Datapower MQClient</PutApplName><PutDate>20210325</PutDate><PutTime>14001367</PutTime><ApplOriginData>    </ApplOriginData></MQMD>"
+												},
+												{
+													"key": "X-Global-Transaction-ID",
+													"value": "256631059"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/xml"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 25 Mar 2021 14:00:15 GMT"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>12345678-1234-1234-1234-123456789012</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:excluirPreferenciaNotificacaoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:mensagem>\n                <bov2:descricao>Prefer&#234;ncia de notifica&#231;&#227;o exclu&#237;da com sucesso</bov2:descricao>\n            </bmv2:mensagem>\n        </bmv2:excluirPreferenciaNotificacaoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								},
+								{
+									"name": "Listar preferências de notificação",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarPreferenciaNotificacao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>50</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:listarPreferenciaNotificacaoRequest>\n         <!--Optional:-->\n         <bmv2:preferencias/>\n      </bmv2:listarPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>\n"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"PreferenciaNotificacaoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarDivulgacaoEventoContabil](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654100&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Listar preferência de notificação",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarPreferenciaNotificacao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mhv2:messageHeader>\n         <mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n      </mhv2:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>{{AuthUsername}}</oas:Username>\n            <oas:Password>{{AuthPassword}}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mhv2:paginacao>\n         <mhv2:numero>1</mhv2:numero>\n         <mhv2:quantidadeItens>50</mhv2:quantidadeItens>\n      </mhv2:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bmv2:listarPreferenciaNotificacaoRequest>\n         <!--Optional:-->\n         <bmv2:preferencias/>\n      </bmv2:listarPreferenciaNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>\n",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/PreferenciaNotificacaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"PreferenciaNotificacaoBSv2"
+													]
+												}
+											},
+											"_postman_previewlanguage": "xml",
+											"header": null,
+											"cookie": [],
+											"body": "<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>a0d229d0-9178-4dd6-a90c-35589c65b916</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n        <hdr:paginacao>\n            <hdr:numero>1</hdr:numero>\n            <hdr:quantidadeItens>10</hdr:quantidadeItens>\n            <hdr:totalPaginas>1</hdr:totalPaginas>\n            <hdr:quantidadeTotalItens>10</hdr:quantidadeTotalItens>\n        </hdr:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarPreferenciaNotificacaoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:preferencias>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.CANCELAMENTO_VALIDADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>CANCELAMENTO_VALIDADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>REGISTRADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.FINALIZACAO_VALIDADA</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>FINALIZACAO_VALIDADA</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://7njxlhmzl7.execute-api.sa-east-1.amazonaws.com/dev/fernando01</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.FINALIZADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>FINALIZADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>MONTANTE_ENERGIA.AJUSTADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>MONTANTE_ENERGIA</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>AJUSTADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>MONTANTE_ENERGIA.VALIDADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>MONTANTE_ENERGIA</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>VALIDADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.VALIDADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>VALIDADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.CONCLUIDO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>CONCLUIDO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.CANCELADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>CANCELADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n                <bov2:preferenciaNotificacao>\n                    <bov2:enderecoDestino>https://url.destino.com.br/path/completo</bov2:enderecoDestino>\n                    <bov2:eventoNotificacao>\n                        <bov2:codigo>CONTRATO.ATUALIZADO</bov2:codigo>\n                        <bov2:entidade>\n                            <bov2:nome>CONTRATO</bov2:nome>\n                        </bov2:entidade>\n                        <bov2:evento>\n                            <bov2:nome>ATUALIZADO</bov2:nome>\n                        </bov2:evento>\n                    </bov2:eventoNotificacao>\n                </bov2:preferenciaNotificacao>\n            </bmv2:preferencias>\n        </bmv2:listarPreferenciaNotificacaoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nEste serviço tem como listar os eventos de negócio disponíveis para notificação a ser enviada para os agentes participantes de mercado através do mecanismo de webhook da Plataforma de Integração.\n\nOs valores retornados nesse serviço serão utilizados para o cadastro das preferências de notificação que o agente deseja receber.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/EventoNotificacaoBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/v2/EventoNotificacaoBSv2 \n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/EventoNotificacaoBSv2?wsdl \n\n*Endpoint*: https://servicos.ccee.org.br:443/ws/v2/EventoNotificacaoBSv2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Resultados de notificação",
+							"item": [
+								{
+									"name": "Listar resultados de notificação",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "text/xml; charset=utf-8"
+											},
+											{
+												"key": "SOAPAction",
+												"type": "text",
+												"value": "listarResultadoNotificacao"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mhv2=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\">\n\t<soapenv:Header>\n\t\t<mhv2:messageHeader>\n\t\t\t<mhv2:codigoPerfilAgente>{{AuthCodigoPerfilAgente}}</mhv2:codigoPerfilAgente>\n\t\t</mhv2:messageHeader>\n\t\t<oas:Security>\n\t\t\t<oas:UsernameToken>\n\t\t\t\t<oas:Username>{{AuthUsername}}</oas:Username>\n\t\t\t\t<oas:Password>{{AuthPassword}}</oas:Password>\n\t\t\t</oas:UsernameToken>\n\t\t</oas:Security>\n\t\t<mhv2:paginacao>\n\t\t\t<mhv2:numero>1</mhv2:numero>\n\t\t\t<mhv2:quantidadeItens>50</mhv2:quantidadeItens>\n\t\t</mhv2:paginacao>\n\t</soapenv:Header>\n\t<soapenv:Body>\n\t\t<bmv2:listarResultadoNotificacaoRequest>\n\t\t\t<bmv2:eventoNotificacao>\n\t\t\t\t<bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n\t\t\t</bmv2:eventoNotificacao>\n\t\t\t<bmv2:periodo>\n\t\t\t\t<bov2:dia>2021-06-04</bov2:dia>\n\t\t\t</bmv2:periodo>\n\t\t\t<!--<bmv2:situacao>\n\t\t\t\t<bov2:nome>AGUARDANDO_NOTIFICACAO</bov2:nome>\n\t\t\t</bmv2:situacao>-->\n\t\t\t<!--<bmv2:transactionId>e8a7d214-3377-4659-b844-8c2fe6751c7d</bmv2:transactionId>-->\n\t\t</bmv2:listarResultadoNotificacaoRequest>\n\t</soapenv:Body>\n</soapenv:Envelope>"
+										},
+										"url": {
+											"raw": "{{host}}/ws/v2/ResultadoNotificacaoBSv2",
+											"host": [
+												"{{host}}"
+											],
+											"path": [
+												"ws",
+												"v2",
+												"ResultadoNotificacaoBSv2"
+											]
+										},
+										"description": "Os campos de entrada e saída do serviço podem ser consultados no [Manual do usuário - listarDivulgacaoEventoContabil](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_654100&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)"
+									},
+									"response": [
+										{
+											"name": "Listar resultados de notificação",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/xml",
+														"type": "text"
+													},
+													{
+														"key": "SOAPAction",
+														"type": "text",
+														"value": "listarResultadoNotificacao"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:mh=\"http://xmlns.energia.org.br/MH/v2\" xmlns:oas=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\" xmlns:bm=\"http://xmlns.energia.org.br/BM/v2\" xmlns:bo=\"http://xmlns.energia.org.br/BO/v2\">\n   <soapenv:Header>\n      <mh:messageHeader>\n         <mh:codigoPerfilAgente>${#Project#codigoPerfilAgente}</mh:codigoPerfilAgente>\n      </mh:messageHeader>\n      <oas:Security>\n         <oas:UsernameToken>\n            <oas:Username>${#Project#usuarioAgente}</oas:Username>\n            <oas:Password>${#Project#senhaAgente}</oas:Password>\n         </oas:UsernameToken>\n      </oas:Security>\n      <mh:paginacao>\n         <mh:numero>1</mh:numero>\n         <mh:quantidadeItens>5</mh:quantidadeItens>\n      </mh:paginacao>\n   </soapenv:Header>\n   <soapenv:Body>\n      <bm:listarResultadoNotificacaoRequest>\n<!--         <bm:eventoNotificacao> -->\n<!--            <bo:codigo>${#Project#codigoEventoNotificacao}</bo:codigo> -->\n<!--         </bm:eventoNotificacao> -->\n         <bm:periodo>\n            <bo:dia>2021-06-16</bo:dia>\n         </bm:periodo>\n         <bm:situacao>\n<!--            <bo:nome>AGUARDANDO_NOTIFICACAO</bo:nome> -->\n         </bm:situacao>\n<!--         <bm:transactionId>e8a7d214-3377-4659-b844-8c2fe6751c7d</bm:transactionId> -->\n      </bm:listarResultadoNotificacaoRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+													"options": {
+														"raw": {
+															"language": "xml"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{host}}/ws/v2/ResultadoNotificacaoBSv2",
+													"host": [
+														"{{host}}"
+													],
+													"path": [
+														"ws",
+														"v2",
+														"ResultadoNotificacaoBSv2"
+													]
+												}
+											},
+											"_postman_previewlanguage": "xml",
+											"header": null,
+											"cookie": [],
+											"body": "<soapenv:Envelope xmlns:hdr=\"http://xmlns.energia.org.br/MH/v2\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Header>\n        <hdr:messageHeader>\n            <hdr:transactionId>c8e02624-bab6-4f3e-a3c8-d7134d49a910</hdr:transactionId>\n            <hdr:versao xsi:nil=\"true\"/>\n        </hdr:messageHeader>\n        <hdr:paginacao>\n            <hdr:numero>1</hdr:numero>\n            <hdr:quantidadeItens>5</hdr:quantidadeItens>\n            <hdr:totalPaginas>214</hdr:totalPaginas>\n            <hdr:quantidadeTotalItens>1070</hdr:quantidadeTotalItens>\n        </hdr:paginacao>\n    </soapenv:Header>\n    <soapenv:Body>\n        <bmv2:listarResultadoNotificacaoResponse xmlns:bov2=\"http://xmlns.energia.org.br/BO/v2\" xmlns:bmv2=\"http://xmlns.energia.org.br/BM/v2\">\n            <bmv2:resultadosNotificacao>\n                <bov2:resultadoNotificacao>\n                    <bov2:dataNotificacao>2021-06-16T11:50:37Z</bov2:dataNotificacao>\n                    <bov2:dataOrigem>2021-06-16T11:41:14Z</bov2:dataOrigem>\n                    <bov2:participanteMercado>\n                        <bov2:codigo>666</bov2:codigo>\n                    </bov2:participanteMercado>\n                    <bov2:preferenciaNotificacao>\n                        <bov2:enderecoDestino>https://endereco.destino.com.br/dev/qualquer_coisa</bov2:enderecoDestino>\n                        <bov2:eventoNotificacao>\n                            <bov2:codigo>MONTANTE_ENERGIA.VALIDADO</bov2:codigo>\n                            <bov2:entidade>\n                                <bov2:nome>MONTANTE_ENERGIA</bov2:nome>\n                            </bov2:entidade>\n                            <bov2:evento>\n                                <bov2:nome>VALIDADO</bov2:nome>\n                            </bov2:evento>\n                        </bov2:eventoNotificacao>\n                    </bov2:preferenciaNotificacao>\n                    <bov2:situacao>\n                        <bov2:nome>NOTIFICADO</bov2:nome>\n                    </bov2:situacao>\n                    <bov2:transactionId>abe1cfed-2cfe-43f1-b157-066451a43d46</bov2:transactionId>\n                </bov2:resultadoNotificacao>\n                <bov2:resultadoNotificacao>\n                    <bov2:dataNotificacao>2021-06-16T11:50:51Z</bov2:dataNotificacao>\n                    <bov2:dataOrigem>2021-06-16T11:41:14Z</bov2:dataOrigem>\n                    <bov2:participanteMercado>\n                        <bov2:codigo>666</bov2:codigo>\n                    </bov2:participanteMercado>\n                    <bov2:preferenciaNotificacao>\n                        <bov2:enderecoDestino>https://endereco.destino.com.br/dev/qualquer_coisa</bov2:enderecoDestino>\n                        <bov2:eventoNotificacao>\n                            <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n                            <bov2:entidade>\n                                <bov2:nome>CONTRATO</bov2:nome>\n                            </bov2:entidade>\n                            <bov2:evento>\n                                <bov2:nome>REGISTRADO</bov2:nome>\n                            </bov2:evento>\n                        </bov2:eventoNotificacao>\n                    </bov2:preferenciaNotificacao>\n                    <bov2:situacao>\n                        <bov2:nome>NOTIFICADO</bov2:nome>\n                    </bov2:situacao>\n                    <bov2:transactionId>3d2ba766-d41a-4c31-8227-585da887a1c5</bov2:transactionId>\n                </bov2:resultadoNotificacao>\n                <bov2:resultadoNotificacao>\n                    <bov2:dataNotificacao>2021-06-16T11:50:666Z</bov2:dataNotificacao>\n                    <bov2:dataOrigem>2021-06-16T11:41:07Z</bov2:dataOrigem>\n                    <bov2:participanteMercado>\n                        <bov2:codigo>666</bov2:codigo>\n                    </bov2:participanteMercado>\n                    <bov2:preferenciaNotificacao>\n                        <bov2:enderecoDestino>https://endereco.destino.com.br/dev/qualquer_coisa</bov2:enderecoDestino>\n                        <bov2:eventoNotificacao>\n                            <bov2:codigo>CONTRATO.REGISTRADO</bov2:codigo>\n                            <bov2:entidade>\n                                <bov2:nome>CONTRATO</bov2:nome>\n                            </bov2:entidade>\n                            <bov2:evento>\n                                <bov2:nome>REGISTRADO</bov2:nome>\n                            </bov2:evento>\n                        </bov2:eventoNotificacao>\n                    </bov2:preferenciaNotificacao>\n                    <bov2:situacao>\n                        <bov2:nome>NOTIFICADO</bov2:nome>\n                    </bov2:situacao>\n                    <bov2:transactionId>a5dbc7a5-ab12-4046-b32f-d60294e21edd</bov2:transactionId>\n                </bov2:resultadoNotificacao>\n                <bov2:resultadoNotificacao>\n                    <bov2:dataNotificacao>2021-06-16T11:51:15Z</bov2:dataNotificacao>\n                    <bov2:dataOrigem>2021-06-16T11:41:12Z</bov2:dataOrigem>\n                    <bov2:participanteMercado>\n                        <bov2:codigo>666</bov2:codigo>\n                    </bov2:participanteMercado>\n                    <bov2:preferenciaNotificacao>\n                        <bov2:enderecoDestino>https://endereco.destino.com.br/dev/qualquer_coisa</bov2:enderecoDestino>\n                        <bov2:eventoNotificacao>\n                            <bov2:codigo>CONTRATO.VALIDADO</bov2:codigo>\n                            <bov2:entidade>\n                                <bov2:nome>CONTRATO</bov2:nome>\n                            </bov2:entidade>\n                            <bov2:evento>\n                                <bov2:nome>VALIDADO</bov2:nome>\n                            </bov2:evento>\n                        </bov2:eventoNotificacao>\n                    </bov2:preferenciaNotificacao>\n                    <bov2:situacao>\n                        <bov2:nome>NOTIFICADO</bov2:nome>\n                    </bov2:situacao>\n                    <bov2:transactionId>f54bad2a-7f34-4b1c-bf51-6702d4e9b7b3</bov2:transactionId>\n                </bov2:resultadoNotificacao>\n                <bov2:resultadoNotificacao>\n                    <bov2:dataNotificacao>2021-06-16T11:50:49Z</bov2:dataNotificacao>\n                    <bov2:dataOrigem>2021-06-16T11:41:12Z</bov2:dataOrigem>\n                    <bov2:participanteMercado>\n                        <bov2:codigo>666</bov2:codigo>\n                    </bov2:participanteMercado>\n                    <bov2:preferenciaNotificacao>\n                        <bov2:enderecoDestino>https://endereco.destino.com.br/dev/qualquer_coisa</bov2:enderecoDestino>\n                        <bov2:eventoNotificacao>\n                            <bov2:codigo>MONTANTE_ENERGIA.VALIDADO</bov2:codigo>\n                            <bov2:entidade>\n                                <bov2:nome>MONTANTE_ENERGIA</bov2:nome>\n                            </bov2:entidade>\n                            <bov2:evento>\n                                <bov2:nome>VALIDADO</bov2:nome>\n                            </bov2:evento>\n                        </bov2:eventoNotificacao>\n                    </bov2:preferenciaNotificacao>\n                    <bov2:situacao>\n                        <bov2:nome>NOTIFICADO</bov2:nome>\n                    </bov2:situacao>\n                    <bov2:transactionId>9fc7f44b-7275-41fb-a249-78e6fa78e128</bov2:transactionId>\n                </bov2:resultadoNotificacao>\n            </bmv2:resultadosNotificacao>\n        </bmv2:listarResultadoNotificacaoResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+										}
+									]
+								}
+							],
+							"description": "# Objetivo\nEste serviço tem como listar os eventos de negócio disponíveis para notificação a ser enviada para os agentes participantes de mercado através do mecanismo de webhook da Plataforma de Integração.\n\nOs valores retornados nesse serviço serão utilizados para o cadastro das preferências de notificação que o agente deseja receber.\n\n# Acesso\nO serviço é exposto através de um web service.\n\n## URL\nLista das URLs do serviço para cada ambiente:\n\n### Piloto\n*WSDL*: https://piloto-servicos.ccee.org.br:442/ws/v2/EventoNotificacaoBSv2?wsdl\n\n*Endpoint*: https://piloto-servicos.ccee.org.br:443/ws/v2/EventoNotificacaoBSv2 \n\n### Produção\n*WSDL*: https://servicos.ccee.org.br:442/ws/v2/EventoNotificacaoBSv2?wsdl \n\n*Endpoint*: https://servicos.ccee.org.br:443/ws/v2/EventoNotificacaoBSv2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						}
+					]
 				},
 				{
 					"name": "PLD",

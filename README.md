@@ -14,7 +14,7 @@ Para utilizar esse Postman Collection, consider qualquer uma das opções abaixo
 
 Para mais informações sobre o Postman, acesse https://www.postman.com/
 
-# A Plataforma de Integração CCEE
+## A Plataforma de Integração CCEE
 
 A [Plataforma de Integração](https://www.ccee.org.br/portal/faces/oquefazemos_menu_lateral/plataforma_integracao?_adf.ctrl-state=ie2aj4g26_1&_afrLoop=94106078621418#!%40%40%3F_afrLoop%3D94106078621418%26_adf.ctrl-state%3Die2aj4g26_5) é uma ferramenta que conecta os sistemas dos agentes com os sistemas da CCEE.
 
@@ -25,17 +25,17 @@ Entre os benefícios para os agentes que utilizam a plataforma estão:
 - Menor custo e risco operacional com a automatização de rotinas
 - Maior agilidade e qualidade na integração e no intercâmbio de dados entre CCEE e demais participantes do mercado
 
-# Quem pode utilizar
+## Quem pode utilizar
 
 Agentes e consultorias que tenham representação total dos seus clientes aderidos à CCEE.
 
-# Como aderir
+## Como aderir
 
 Para utilizar a solução, basta possuir um certificado digital e realizar um cadastro na CCEE. Veja como é simples:
 1. [Adquira um certificado digital](https://www.iti.gov.br/index.php/icp-brasil/estrutura)
 2. [Cadastre-se na Plataforma de Integração da CCEE](https://www.ccee.org.br/cs/idcplg?IdcService=GET_FILE&dDocName=CCEE_650001&RevisionSelectionMethod=LatestReleased&allowInterrupt=1&noSaveAs=1)
 
-# Como utilizar
+## Como utilizar
 
 Com o certificado instalado e o cadastro realizado, o próximo passo é conectar seu sistema aos serviços da plataforma. Veja abaixo como utilizar cada um deles.
 
@@ -62,7 +62,7 @@ Os passos abaixo mostram como configurar sua chave privada no Postman:
 3. Adicione o arquivo com sua chave privada no campo _PFX File_, informando a senha do arquivo, e adicione o endereço o valor **_*.ccee.org.br_** no campo _Host_
 ![Postman - Howto 2Way SSL](./img/howto_postman_2wayssl_002.png)
 
-### Referências
+## Referências
 
 - [Postman Learning Center](https://learning.postman.com/)
 - [Postman - Working with certificates](https://learning.postman.com/docs/sending-requests/certificates/)
