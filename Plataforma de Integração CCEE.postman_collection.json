@@ -5622,7 +5622,7 @@
 		},
 		{
 			"key": "testeCodigoPerfil",
-			"value": "{[testeCodigoPerfil}}"
+			"value": "{{testeCodigoPerfil}}"
 		},
 		{
 			"key": "testeCodigoContrato",
